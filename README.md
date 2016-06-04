@@ -99,7 +99,30 @@ At this stage React-rb is installed but we dont have any components yet. Lets cr
 
 This will add a new Component at app/views/components/home/show.rb
 
-Have a look at this component as it provides the basis for all other React-rb components you will write. Note that all React-rb components inherit from `React::Component::Base` but you are free to `include React::Component::Base` instead if you prefer your components inheriting from other classes. Also note how params are set and the `before_mount` (etc) macros as you will use these extensively. Finally note that every component must have one `render` methord which must return just one DOM `element` which in this example case is a div. 
+Have a look at this component as it provides the basis for all other React-rb components you will write. Note that all React-rb components inherit from `React::Component::Base` but you are free to `include React::Component::Base` instead if you prefer your components inheriting from other classes. Also note how `params` are declared and the `before_mount` (and friends) macros as you will use these extensively. Finally note that every component must have one `render` methord which must return just one DOM `element` which in this example case is a `div`. 
 
 Next let's get this simple component rendering on a page. For that we will need a rails controller and a route.
+
+	rails generate controller home
+
+And add a route to your `routes.rb`
+
+	get 'home' => 'home#show'
+
+A method in the HomeController which will render the component.
+
+	class HomeController < ApplicationController
+	  def show
+	  end
+	end
+
+And finally a view app/views/home/show.erb
+
+	<%= react_component "Home::Show" %>
+
+And if all has gone well, you should be rewarded with `Home::Show` in your browser. If you open your JavaScript console you can also check which version of React has been loaded 
+
+	React.version
+
+At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage out front end assets.
 
