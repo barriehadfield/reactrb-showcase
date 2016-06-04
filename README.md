@@ -93,4 +93,13 @@ then
 	rails g reactrb:install
 	bundle update
 
-At this stage React-rb is installed but we dont have any components yet. Lets create via the 
+At this stage React-rb is installed but we dont have any components yet. Lets create via the generator:
+
+	rails g reactrb:component Home::Show
+
+This will add a new Component at app/views/components/home/show.rb
+
+Have a look at this component as it provides the basis for all other React-rb components you will write. Note that all React-rb components inherit from `React::Component::Base` but you are free to `include React::Component::Base` instead if you prefer your components inheriting from other classes. Also note how params are set and the `before_mount` (etc) macros as you will use these extensively. Finally note that every component must have one `render` methord which must return just one DOM `element` which in this example case is a div. 
+
+Next let's get this simple component rendering on a page. For that we will need a rails controller and a route.
+
