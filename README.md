@@ -1,11 +1,11 @@
 # React-rb Showcase
 This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the many excellent React-rb tutorials already written. 
 
-### For an introduction to React-rb
+### Introductions to React-rb
 + [An overview of React-rb by Mitch VanDuyn](http://slides.com/mitchvanduyn/deck-1-3#/)
 + [Power of React-js with the joy of Ruby by Forrest Chang](http://www.slideshare.net/fkchang/reactrb-all-the-power-of-reactjs-with-all-the-joy-of-ruby)
 
-### For more comprehensive tutorials please see some of these
+### Comprehensive React-rb tutorials 
 + [Getting started with React-rb and Rails](https://github.com/loicboutet/reactrb_tutorial)
 + [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
 + [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
@@ -15,9 +15,14 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 + [React-rb GitHub site](https://github.com/zetachang/react.rb)
 + [Opal website](http://opalrb.org/)
 
-### React technologies you will need to understand
-+ [The main React site](https://facebook.github.io/react/docs/getting-started.html)
+### Underlying React technologies
+
+React-rb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to compliment your understanding of React-rb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to React-rb equivalents. To make headway with React-rb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start.   
+
++ [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
++ [React](https://facebook.github.io/react/docs/getting-started.html)
 + [React Router](https://github.com/reactjs/react-router)
++ [React Bootstrap](https://react-bootstrap.github.io/)
 
 ### React-rb Help, Problems, Questions, Issues
 
