@@ -1,8 +1,12 @@
-#React-rb Showcase
+#Reactrb Showcase
 
-This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the excellent React-rb tutorials already written.
+This is a simple rails app showcasing Reactrb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how Reactrb and associated technologies work together. This showcase is intended to be a companion project to the excellent Reactrb tutorials already written (see end).
 
-+ [Introduction and Resources](#introduction-and-resources)
++ [Introduction](#introduction)
+	+[Introductions to Reactrb](#introductions-to-reactrb)
+	+[Reactrb Help and Questions](#reactrb-help-and-questions)
+	+[This showcase base infrastructure and philosophy](#this-showcase-base-infrastructure-and-philosophy)
+	+[Using NPM and Webpack alongside Rails](#using-npm-and-webpack-alongside -rails)
 + [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
 	+ Step 1: Creating a new Rails application
 	+ Step 2: Adding React-rb
@@ -10,43 +14,21 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 	+ Step 4: Installing React through NPM and Webpack
 + React Bootstrap with React-rb
 + React Router with React-rb-Router
++ [Further reading](#further-reading)
+	+ [Other Reactrb tutorials](#other-reactrb-tutorials)
+	+ [Other Reactrb resources](#other-reactrb-resources)
+	+ [Reactrb powered by React](#reactrb-powered-by-react)
+	+ [Opal under the covers](#opal-under-the-covers)
 
-#Introduction and Resources
+##Introduction
 
-###Introductions to React-rb
-+ [An overview of React-rb by Mitch VanDuyn](http://slides.com/mitchvanduyn/deck-1-3#/)
+###Introductions to Reactrb
++ [An overview of Reactrb by Mitch VanDuyn](http://slides.com/mitchvanduyn/deck-1-3#/)
 + [Power of React-js with the joy of Ruby by Forrest Chang](http://www.slideshare.net/fkchang/reactrb-all-the-power-of-reactjs-with-all-the-joy-of-ruby)
 
-###Comprehensive React-rb tutorials 
-+ [Getting started with React-rb and Rails](https://github.com/loicboutet/reactrb_tutorial)
-+ [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
-+ [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
+###Reactrb Help and Questions
 
-###Other essential resources
-+ [React-rb website](http://reactrb.org/)
-+ [React-rb GitHub site](https://github.com/zetachang/react.rb)
-+ [Opal website](http://opalrb.org/)
-
-###React-rb is powered by React 
-
-React-rb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to compliment your understanding of React-rb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to React-rb equivalents. To make headway with React-rb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start.   
-
-+ [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
-+ [React](https://facebook.github.io/react/docs/getting-started.html)
-+ [React Router](https://github.com/reactjs/react-router)
-+ [React Bootstrap](https://react-bootstrap.github.io/)
-
-###Opal under the covers
-
-React-rb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 native JavaScript. If you have not used Opal before then you should at a minimum read the excellent guides as they will teach you enough to get you started with React-rb. 
-
-+ [Opal](http://opalrb.org/)
-+ [Opal Guides](http://opalrb.org/docs/guides/v0.9.2/index.html)
-+ [To see the full power of Opal in action watch this video](https://www.youtube.com/watch?v=vhIrrlcWphU)
-
-###React-rb Help, Problems, Questions, Issues
-
-+ [Stack Overflow](http://stackoverflow.com/questions/tagged/react-rb) tag `react-rb` for specific problems.
++ [Stack Overflow](http://stackoverflow.com/questions/tagged/react-rb) tag `reactrb` for specific problems.
 + [Gitter.im](https://gitter.im/zetachang/react.rb) for general questions, discussion, and interactive help.
 + [Github Issues](https://github.com/zetachang/react.rb/issues) for bugs, feature enhancements, etc.
 
@@ -60,8 +42,6 @@ To run this tutorial you will also need [NPM](https://www.npmjs.com/) and [Webpa
 
 Several of the Gems we will use here come with their own source code copy of React or React-Router. Personally I don't like this as I like to know and control the version of React and React-Router I am using as I find React does not play well with versions of it's self and I have wasted many an hour trying to work out what was going wrong only to find a spurious version of React included via a Gem. 
 
-There is discussion in the React-rb community about removing React source so this may become a non-issue.
-
 ### Using NPM and Webpack alongside Rails 
 
 I have found this to be an excellent combination which allows for all the front end assets to be installed via NPM which then play very nicely with Webpack which will co-exist happily with Sprockets. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work. 
@@ -69,9 +49,9 @@ I have found this to be an excellent combination which allows for all the front 
 + [NPM](https://www.npmjs.com/)
 + [Webpack](https://www.npmjs.com/package/webpack)
 
-#Setup Rails, React-rb and Webpack
+##Setup Rails, Reactrb and Webpack
 
-##Step 1: Creating a new Rails application
+###Step 1: Creating a new Rails application
 
 	rails new reactrb-showcase
 	cd reactrb-showcase
@@ -87,7 +67,7 @@ And in your browser
 
 You should be seeing the Rails Welcome aboard page. Great, Rails is now installed. Lets get started with the interesting stuff.
 
-## Step 2: Adding React-rb
+###Step 2: Adding Reactrb
 
 [We will use the React-rb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
 
@@ -101,13 +81,13 @@ then
 	rails g reactrb:install
 	bundle update
 
-At this stage React-rb is installed but we dont have any components yet. Lets create via the generator:
+At this stage Reactrb is installed but we dont have any components yet. Lets create via the generator:
 
 	rails g reactrb:component Home::Show
 
 This will add a new Component at app/views/components/home/show.rb
 
-Have a look at this component as it provides the basis for all other React-rb components you will write. Note that all React-rb components inherit from `React::Component::Base` but you are free to `include React::Component::Base` instead if you prefer your components inheriting from other classes. Also note how `params` are declared and the `before_mount` (and friends) macros as you will use these extensively. Finally note that every component must have one `render` methord which must return just one DOM `element` which in this example case is a `div`. 
+Have a look at this component as it provides the basis for all other Reactrb components you will write. Note that all Reactrb components inherit from `React::Component::Base` but you are free to `include React::Component::Base` instead if you prefer your components inheriting from other classes. Also note how `params` are declared and the `before_mount` (and friends) macros as you will use these extensively. Finally note that every component must have one `render` methord which must return just one DOM `element` which in this example case is a `div`. 
 
 Next let's get this simple component rendering on a page. For that we will need a rails controller and a route.
 
@@ -134,11 +114,11 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage our front end assets.
 
-## Step 3: Webpack for managing front-end assets
+###Step 3: Webpack for managing front-end assets
 
 [We will use the Webpack Rails Gem](https://github.com/mipearson/webpack-rails)
 
-Run through the *Installation* instructions and you will end up with the following new files:
+Run through the Installation instructions and you will end up with the following new files:
 
 	package.json (for managing your NPM modules)
 	procfile (for starting webpack-dev-server alongside your rails server)
@@ -167,7 +147,7 @@ Assuming all went well you can now start your rails server agin using foreman
 
 At this point you should have a working server with Webpack hot-loading any components added via NPM.
 
-## Step 4: Installing React through NPM and Webpack
+###Step 4: Installing React through NPM and Webpack
 
 Installing React is very simple
 
@@ -184,6 +164,35 @@ If you refresh your browser and check the React version should see the latest ve
 
 	Warning: React.createElement: type should not be null, undefined, boolean, or number. It should be a string (for DOM elements) or a ReactClass (for composite components).
 
-This has happened because there are now two different versions of React loaded - one from the React-rb gem and one from Webpack! The warning is of course no help at all in determining that but I can save you many hours of searching as I eventually found that this was the problem. 
+This has happened because there are now two different versions of React loaded - one from the Reactrb gem and one from Webpack! The warning is of course no help at all in determining that but I can save you many hours of searching as I eventually found that this was the problem. 
 
 My solution to this problem has been to remove the older copy of React from the gem and rely on NPM and Webpack to install React as this gives me greater control of which precisely which version is being used. 
+
+##Further reading
+
+###Other Reactrb tutorials 
++ [Getting started with Reactrb and Rails](https://github.com/loicboutet/reactrb_tutorial)
++ [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
++ [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
+
+###Other Reactrb resources
++ [Reactrb website](http://reactrb.org/)
++ [Reactrb GitHub site](https://github.com/zetachang/react.rb)
++ [Opal website](http://opalrb.org/)
+
+###Reactrb is powered by React 
+
+React-rb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to compliment your understanding of React-rb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to React-rb equivalents. To make headway with React-rb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start.   
+
++ [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
++ [React](https://facebook.github.io/react/docs/getting-started.html)
++ [React Router](https://github.com/reactjs/react-router)
++ [React Bootstrap](https://react-bootstrap.github.io/)
+
+###Opal under the covers
+
+Reactrb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 native JavaScript. If you have not used Opal before then you should at a minimum read the excellent guides as they will teach you enough to get you started with Reactrb. 
+
++ [Opal](http://opalrb.org/)
++ [Opal Guides](http://opalrb.org/docs/guides/v0.9.2/index.html)
++ [To see the full power of Opal in action watch this video](https://www.youtube.com/watch?v=vhIrrlcWphU)
