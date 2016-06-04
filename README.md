@@ -25,7 +25,7 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 + [Gitter.im](https://gitter.im/zetachang/react.rb) for general questions, discussion, and interactive help.
 + [Github Issues](https://github.com/zetachang/react.rb/issues) for bugs, feature enhancements, etc.
 
-## This showcase base technologies and philosophy 
+### This showcase base technologies and philosophy 
 
 The base infrastructure for this showcase is Rails 4.2.6 with Ruby 2.3.1. Please see their respective websites for details on how to install Rails and Ruby.
 
@@ -39,7 +39,23 @@ Several of the Ruby Gem versions of components we will use here come with their 
 
 There is discussion in the React-rb community about removing React source so this may become a non-issue.
 
-## Using NPM and Webpack alongside Rails 
+### Using NPM and Webpack alongside Rails 
 
 I have found this to be an excellent combination which allows for all the front end assets to be installed via NPM which then play very nicely with Webpack which will co-exist happily with Sprockets. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work. 
+
+## Step1: creating a new Rails application
+
+	rails new reactrb-showcase
+	cd reactrb-showcase
+	bundle install
+
+You should have a empty Rails application
+
+	rails s
+
+And in your browser
+
+	http://localhost:3000/
+
+You should be seeing the Rails Welcome aboard page. Great, Rails is installed. Lets get started with the interesting stuff.
 
