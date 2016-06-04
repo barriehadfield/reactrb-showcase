@@ -43,7 +43,7 @@ There is discussion in the React-rb community about removing React source so thi
 
 I have found this to be an excellent combination which allows for all the front end assets to be installed via NPM which then play very nicely with Webpack which will co-exist happily with Sprockets. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work. 
 
-## Step1: creating a new Rails application
+## Step 1: creating a new Rails application
 
 	rails new reactrb-showcase
 	cd reactrb-showcase
@@ -59,3 +59,17 @@ And in your browser
 
 You should be seeing the Rails Welcome aboard page. Great, Rails is installed. Lets get started with the interesting stuff.
 
+## Step 2: adding React-rb
+
+[We will use the React-rb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
+
+In your `Gemfile`
+
+	gem "reactive_rails_generator"
+
+then
+
+	bundle update
+	rails g reactrb:install
+
+At this stage React-rb is installed but we dont have any components yet. Lets create via the 
