@@ -51,9 +51,9 @@ React-rb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 n
 
 The base infrastructure for this showcase is Rails 4.2.6 with Ruby 2.3.1. Please see their respective websites for details on how to install Rails and Ruby.
 
-You will also need [NPM](https://www.npmjs.com/) and [Webpack](https://www.npmjs.com/package/webpack) installed. Please see the NPM websites for instructions on how to install these.
-
 I like to keep my front-end and back-end assets separate and in an ideal world, all my Rails related assets would be Ruby Gems and all the front-end assets will be Node Modules installed by NPM. This is however not always achievable. 
+
+To run this tutorial you will also need [NPM](https://www.npmjs.com/) and [Webpack](https://www.npmjs.com/package/webpack) installed. Please see the NPM websites for instructions on how to install these.
 
 Several of the Gems we will use here come with their own source code copy of React or React-Router. Personally I don't like this as I like to know and control the version of React and React-Router I am using as I find React does not play well with versions of it's self and I have wasted many an hour trying to work out what was going wrong only to find a spurious version of React included via a Gem. 
 
@@ -62,6 +62,9 @@ There is discussion in the React-rb community about removing React source so thi
 ### Using NPM and Webpack alongside Rails 
 
 I have found this to be an excellent combination which allows for all the front end assets to be installed via NPM which then play very nicely with Webpack which will co-exist happily with Sprockets. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work. 
+
++ [NPM](https://www.npmjs.com/)
++ [Webpack](https://www.npmjs.com/package/webpack)
 
 #Setup Rails, React-rb and Webpack
 
