@@ -1,8 +1,9 @@
 #React-rb Showcase
-This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the many excellent React-rb tutorials already written.
+
+This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the excellent React-rb tutorials already written.
 
 + [Introduction and Resources](#introduction-and-resources)
-+ [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
++ [Setup Rails, React-rb and Webpack](#setup-rails,-react-rb-and-webpack)
 
 #Introduction and Resources
 
@@ -63,7 +64,7 @@ I have found this to be an excellent combination which allows for all the front 
 
 #Setup Rails, React-rb and Webpack
 
-## Step 1: creating a new Rails application
+##Step 1 - Creating a new Rails application
 
 	rails new reactrb-showcase
 	cd reactrb-showcase
@@ -79,7 +80,7 @@ And in your browser
 
 You should be seeing the Rails Welcome aboard page. Great, Rails is installed. Lets get started with the interesting stuff.
 
-## Step 2: adding React-rb
+## Step 2 - Adding React-rb
 
 [We will use the React-rb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
 
@@ -124,5 +125,5 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 	React.version
 
-At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage out front end assets.
+At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage our front end assets.
 
