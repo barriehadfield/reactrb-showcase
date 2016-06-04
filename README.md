@@ -3,7 +3,7 @@
 This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the excellent React-rb tutorials already written.
 
 + [Introduction and Resources](#introduction-and-resources)
-+ [Setup Rails, React-rb and Webpack](#setup-rails,-react-rb-and-webpack)
++ [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
 
 #Introduction and Resources
 
