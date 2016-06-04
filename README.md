@@ -112,7 +112,7 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 	React.version
 
-At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage our front end assets.
+A note on React versions: Reactrb includes the React Rails gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so it is best to decide where React will be included. <<<<<Todo>>>>>
 
 ###Step 3: Webpack for managing front-end assets
 

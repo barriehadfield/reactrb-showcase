@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # react-rb gems
 gem "reactive_rails_generator"
 gem 'reactive-ruby'
-gem 'react-rails', '~> 1.3.0'
+gem 'react-rails', '~> 1.7.1'
 gem 'opal-rails', '>= 0.8.1'
 gem 'therubyracer', platforms: :ruby
 
