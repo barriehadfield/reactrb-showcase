@@ -3,8 +3,8 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 
 ##Documentation
 
-+ [Introduction and Resources](#Introduction and Resources)
-+ [Setup Rails, React-rb and Webpack](#Setup Rails, React-rb and Webpack)
++ [Introduction and Resources](#introduction-and-resources)
++ [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
 
 #Introduction and Resources
 
