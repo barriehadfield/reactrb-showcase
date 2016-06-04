@@ -5,9 +5,9 @@ This is a simple rails app showcasing Reactrb, Opal and associated technologies.
 + [Introduction](#introduction)
 	+ Introductions to Reactrb
 	+ Reactrb Help and Questions
-	+ [This showcase base infrastructure and philosophy](#this-showcase-base-infrastructure-and-philosophy)
-	+ [Using NPM and Webpack alongside Rails](#using-npm-and-webpack-alongside -rails)
-+ [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
+	+ This showcase base infrastructure and philosophy
+	+ Using NPM and Webpack alongside Rails
++ [Setup](#setup)
 	+ Step 1: Creating a new Rails application
 	+ Step 2: Adding React-rb
 	+ Step 3: Webpack for managing front-end assets
@@ -15,10 +15,10 @@ This is a simple rails app showcasing Reactrb, Opal and associated technologies.
 + React Bootstrap with React-rb
 + React Router with React-rb-Router
 + [Further reading](#further-reading)
-	+ [Other Reactrb tutorials](#other-reactrb-tutorials)
-	+ [Other Reactrb resources](#other-reactrb-resources)
-	+ [Reactrb powered by React](#reactrb-powered-by-react)
-	+ [Opal under the covers](#opal-under-the-covers)
+	+ Other Reactrb tutorials
+	+ Other Reactrb resources
+	+ Reactrb powered by React
+	+ Opal under the covers
 
 ##Introduction
 
@@ -49,7 +49,7 @@ I have found this to be an excellent combination which allows for all the front 
 + [NPM](https://www.npmjs.com/)
 + [Webpack](https://www.npmjs.com/package/webpack)
 
-##Setup Rails, Reactrb and Webpack
+##Setup
 
 ###Step 1: Creating a new Rails application
 
