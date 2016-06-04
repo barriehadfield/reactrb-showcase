@@ -1,34 +1,31 @@
 # React-rb Showcase
 This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the many excellent React-rb tutorials already written. 
 
-### For introductions to React-rb:
+### For an introduction to React-rb
 + [An overview of React-rb by Mitch VanDuyn](http://slides.com/mitchvanduyn/deck-1-3#/)
 + [Power of React-js with the joy of Ruby by Forrest Chang](http://www.slideshare.net/fkchang/reactrb-all-the-power-of-reactjs-with-all-the-joy-of-ruby)
 
-### For more comprehensive tutorials please see some of these:
+### For more comprehensive tutorials please see some of these
 + [Getting started with React-rb and Rails](https://github.com/loicboutet/reactrb_tutorial)
 + [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
 + [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
 
-### Other essential resources:
+### Other essential resources
 + [React-rb website](http://reactrb.org/)
 + [React-rb GitHub site](https://github.com/zetachang/react.rb)
 + [Opal website](http://opalrb.org/)
 
-### Underlying technologies:
+### React technologies you will need to understand
 + [The main React site](https://facebook.github.io/react/docs/getting-started.html)
 + [React Router](https://github.com/reactjs/react-router)
 
-### Getting help from the community
-[![Join the chat at https://gitter.im/zetachang/react.rb](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/zetachang/react.rb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-# Problems, Questions, Issues
+### React-rb Help, Problems, Questions, Issues
 
 + [Stack Overflow](http://stackoverflow.com/questions/tagged/react-rb) tag `react-rb` for specific problems.
 + [Gitter.im](https://gitter.im/zetachang/react.rb) for general questions, discussion, and interactive help.
 + [Github Issues](https://github.com/zetachang/react.rb/issues) for bugs, feature enhancements, etc.
 
-## Base application technologies and philosophy 
+## This showcase base technologies and philosophy 
 
 The base infrastructure for this showcase is Rails 4.2.6 with Ruby 2.3.1. Please see their respective websites for details on how to install Rails and Ruby.
 
