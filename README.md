@@ -6,8 +6,10 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 + [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
 	+ Step 1: Creating a new Rails application
 	+ Step 2: Adding React-rb
-	+ Step 3: Webpack for managing front end assets
-
+	+ Step 3: Webpack for managing front-end assets
+	+ Step 4: Installing React through NPM and Webpack
++ React Bootstrap with React-rb
++ React Router with React-rb-Router
 #Introduction and Resources
 
 ###Introductions to React-rb
@@ -35,7 +37,7 @@ React-rb and friends are in most cases simple DSL Ruby wrappers to the underlyin
 
 ###Opal under the covers
 
-React-rb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 native JavaScript. If you have not used Opal before then you should at a minimum read the excellent Guids as they will teach you enough to get you started with React-rb. 
+React-rb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 native JavaScript. If you have not used Opal before then you should at a minimum read the excellent guides as they will teach you enough to get you started with React-rb. 
 
 + [Opal](http://opalrb.org/)
 + [Opal Guides](http://opalrb.org/docs/guides/v0.9.2/index.html)
@@ -82,7 +84,7 @@ And in your browser
 
 	http://localhost:3000/
 
-You should be seeing the Rails Welcome aboard page. Great, Rails is installed. Lets get started with the interesting stuff.
+You should be seeing the Rails Welcome aboard page. Great, Rails is now installed. Lets get started with the interesting stuff.
 
 ## Step 2: Adding React-rb
 
@@ -131,7 +133,7 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage our front end assets.
 
-## Step 3: Webpack for managing front end assets
+## Step 3: Webpack for managing front-end assets
 
 [We will use the Webpack Rails Gem](https://github.com/mipearson/webpack-rails)
 
@@ -162,3 +164,25 @@ Assuming all went well you can now start your rails server agin using foreman
 
 	foreman start
 
+At this point you should have a working server with Webpack hot-loading any components added via NPM.
+
+## Step 4: Installing React through NPM and Webpack
+
+Installing React is very simple
+
+	npm install react react-dom --save
+
+This will install React (latest version) and also ReactDOM into your `node-modules` folder and also add the fact that these are installed to your `package.json`. You can now delete your `node-modules` folder at any time and simply `npm install` to install everything listed in `package.json`. Webpack does an excellent job of managing dependancies between NPM assets but you might find yourself deleting your `node-modules` folder fairly often as that is often the advice to resolve strange conflicts. 
+
+Finally you need to `require` React and React DOM in webpack/application.js 
+
+	window.React = require('react')
+	window.ReactDOM = require('react-dom')
+
+If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). You might also notice that there are warnings from React. 
+
+	Warning: React.createElement: type should not be null, undefined, boolean, or number. It should be a string (for DOM elements) or a ReactClass (for composite components).
+
+This has happened because there are now two different versions of React loaded - one from the React-rb gem and one from Webpack! The warning is of course no help at all in determining that but I can save you many hours of searching as I eventually found that this was the problem. 
+
+My solution to this problem has been to remove the older copy of React from the gem and rely on NPM and Webpack to install React as this gives me greater control of which precisely which version is being used. 
