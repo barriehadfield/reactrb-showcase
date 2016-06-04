@@ -51,13 +51,11 @@ React-rb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 n
 
 The base infrastructure for this showcase is Rails 4.2.6 with Ruby 2.3.1. Please see their respective websites for details on how to install Rails and Ruby.
 
-You will also need NPM installed. Please see the Node and NPM websites for instructions on how to install those technologies.
+You will also need [NPM](https://www.npmjs.com/) and [Webpack](https://www.npmjs.com/package/webpack) installed. Please see the NPM websites for instructions on how to install these.
 
-I suggest you use RVM to manage Ruby versions and NVM to manage Node versions. In this showcase we will be using NPM to install Node Modules and Webpack to deliver front end assets to Rails.
+I like to keep my front-end and back-end assets separate and in an ideal world, all my Rails related assets would be Ruby Gems and all the front-end assets will be Node Modules installed by NPM. This is however not always achievable. 
 
-Ruby Gems are used as well, but more out of necessity than intent. I like to keep my front end and back end assets separate and in an ideal world, all my Rails related assets will be Ruby Gems and all the front end assets will be Node Modules installed by NPM. This is not always achievable and there are certainly edge cases which have an equal right in the back and front ends (like Opal and React-rb themselves). 
-
-Several of the Ruby Gem versions of components we will use here come with their own source copy of React or React-Router. Personally I dont like this as I like to know and control the version of React and React-Router I am using as I find React does not play well with versions of it's self and I have wasted many an hour trying to work out what was going wrong only to find a spurious version of React included via a Gem. 
+Several of the Gems we will use here come with their own source code copy of React or React-Router. Personally I don't like this as I like to know and control the version of React and React-Router I am using as I find React does not play well with versions of it's self and I have wasted many an hour trying to work out what was going wrong only to find a spurious version of React included via a Gem. 
 
 There is discussion in the React-rb community about removing React source so this may become a non-issue.
 
