@@ -10,6 +10,7 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 	+ Step 4: Installing React through NPM and Webpack
 + React Bootstrap with React-rb
 + React Router with React-rb-Router
+
 #Introduction and Resources
 
 ###Introductions to React-rb
