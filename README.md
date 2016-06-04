@@ -1,21 +1,28 @@
-# React-rb Showcase
-This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the many excellent React-rb tutorials already written. 
+#React-rb Showcase
+This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the many excellent React-rb tutorials already written.
 
-### Introductions to React-rb
+##Documentation
+
++ [Introduction and Resources](#Introduction and Resources)
++ [Setup Rails, React-rb and Webpack](#Setup Rails, React-rb and Webpack)
+
+#Introduction and Resources
+
+###Introductions to React-rb
 + [An overview of React-rb by Mitch VanDuyn](http://slides.com/mitchvanduyn/deck-1-3#/)
 + [Power of React-js with the joy of Ruby by Forrest Chang](http://www.slideshare.net/fkchang/reactrb-all-the-power-of-reactjs-with-all-the-joy-of-ruby)
 
-### Comprehensive React-rb tutorials 
+###Comprehensive React-rb tutorials 
 + [Getting started with React-rb and Rails](https://github.com/loicboutet/reactrb_tutorial)
 + [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
 + [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
 
-### Other essential resources
+###Other essential resources
 + [React-rb website](http://reactrb.org/)
 + [React-rb GitHub site](https://github.com/zetachang/react.rb)
 + [Opal website](http://opalrb.org/)
 
-### React-rb is powered by React 
+###React-rb is powered by React 
 
 React-rb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to compliment your understanding of React-rb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to React-rb equivalents. To make headway with React-rb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start.   
 
@@ -24,21 +31,21 @@ React-rb and friends are in most cases simple DSL Ruby wrappers to the underlyin
 + [React Router](https://github.com/reactjs/react-router)
 + [React Bootstrap](https://react-bootstrap.github.io/)
 
-### Opal under the covers
+###Opal under the covers
 
 React-rb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 native JavaScript. If you have not used Opal before then you should at a minimum read the excellent Guids as they will teach you enough to get you started with React-rb. 
 
 + [Opal](http://opalrb.org/)
 + [Opal Guides](http://opalrb.org/docs/guides/v0.9.2/index.html)
-+ [To see the full power of Opal in action watch this video](http://opalrb.org/docs/guides/v0.9.2/index.html)
++ [To see the full power of Opal in action watch this video](https://www.youtube.com/watch?v=vhIrrlcWphU)
 
-### React-rb Help, Problems, Questions, Issues
+###React-rb Help, Problems, Questions, Issues
 
 + [Stack Overflow](http://stackoverflow.com/questions/tagged/react-rb) tag `react-rb` for specific problems.
 + [Gitter.im](https://gitter.im/zetachang/react.rb) for general questions, discussion, and interactive help.
 + [Github Issues](https://github.com/zetachang/react.rb/issues) for bugs, feature enhancements, etc.
 
-### This showcase base technologies and philosophy 
+###This showcase base infrastructure and philosophy 
 
 The base infrastructure for this showcase is Rails 4.2.6 with Ruby 2.3.1. Please see their respective websites for details on how to install Rails and Ruby.
 
@@ -56,7 +63,7 @@ There is discussion in the React-rb community about removing React source so thi
 
 I have found this to be an excellent combination which allows for all the front end assets to be installed via NPM which then play very nicely with Webpack which will co-exist happily with Sprockets. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work. 
 
-# Setup
+#Setup Rails, React-rb and Webpack
 
 ## Step 1: creating a new Rails application
 
