@@ -12,11 +12,11 @@ This is a simple rails app showcasing Reactrb, Opal and associated technologies.
 	+ Step 2: Adding React-rb
 	+ Step 3: Webpack for managing front-end assets
 	+ Step 4: Installing React through NPM and Webpack
-+ React Bootstrap with React-rb
-+ React Router with React-rb-Router
++ React Bootstrap
++ Reactrb-Router
 + [Further reading](#further-reading)
 	+ Other Reactrb tutorials
-	+ Other Reactrb resources
+	+ Other great resources
 	+ Reactrb powered by React
 	+ Opal under the covers
 
@@ -69,7 +69,7 @@ You should be seeing the Rails Welcome aboard page. Great, Rails is now installe
 
 ###Step 2: Adding Reactrb
 
-[We will use the React-rb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
+[We will use the Reactrb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
 
 In your `Gemfile`
 
@@ -175,7 +175,7 @@ My solution to this problem has been to remove the older copy of React from the 
 + [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
 + [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
 
-###Other Reactrb resources
+###Other great resources
 + [Reactrb website](http://reactrb.org/)
 + [Reactrb GitHub site](https://github.com/zetachang/react.rb)
 + [Opal website](http://opalrb.org/)
