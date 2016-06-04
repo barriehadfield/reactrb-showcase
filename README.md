@@ -3,10 +3,10 @@
 This is a simple rails app showcasing Reactrb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how Reactrb and associated technologies work together. This showcase is intended to be a companion project to the excellent Reactrb tutorials already written (see end).
 
 + [Introduction](#introduction)
-	+[Introductions to Reactrb](#introductions-to-reactrb)
-	+[Reactrb Help and Questions](#reactrb-help-and-questions)
-	+[This showcase base infrastructure and philosophy](#this-showcase-base-infrastructure-and-philosophy)
-	+[Using NPM and Webpack alongside Rails](#using-npm-and-webpack-alongside -rails)
+	+ Introductions to Reactrb
+	+ Reactrb Help and Questions
+	+ [This showcase base infrastructure and philosophy](#this-showcase-base-infrastructure-and-philosophy)
+	+ [Using NPM and Webpack alongside Rails](#using-npm-and-webpack-alongside -rails)
 + [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
 	+ Step 1: Creating a new Rails application
 	+ Step 2: Adding React-rb
