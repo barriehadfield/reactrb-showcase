@@ -1,8 +1,6 @@
 #React-rb Showcase
 This is a simple rails app showcasing React-rb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how React-rb and associated technologies work together. This showcase is intended to be a companion project to the many excellent React-rb tutorials already written.
 
-##Documentation
-
 + [Introduction and Resources](#introduction-and-resources)
 + [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
 
@@ -93,5 +91,6 @@ then
 
 	bundle update
 	rails g reactrb:install
+	bundle update
 
 At this stage React-rb is installed but we dont have any components yet. Lets create via the 
