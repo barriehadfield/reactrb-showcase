@@ -4,6 +4,9 @@ This is a simple rails app showcasing React-rb, Opal and associated technologies
 
 + [Introduction and Resources](#introduction-and-resources)
 + [Setup Rails, React-rb and Webpack](#setup-rails-react-rb-and-webpack)
+	+ Step 1 Creating a new Rails application
+	+ Step 2 Adding React-rb
+	+ Step 3 Webpack for managing front end assets
 
 #Introduction and Resources
 
@@ -64,7 +67,7 @@ I have found this to be an excellent combination which allows for all the front 
 
 #Setup Rails, React-rb and Webpack
 
-##Step 1 - Creating a new Rails application
+##Step 1 Creating a new Rails application
 
 	rails new reactrb-showcase
 	cd reactrb-showcase
@@ -80,7 +83,7 @@ And in your browser
 
 You should be seeing the Rails Welcome aboard page. Great, Rails is installed. Lets get started with the interesting stuff.
 
-## Step 2 - Adding React-rb
+## Step 2 Adding React-rb
 
 [We will use the React-rb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
 
@@ -126,4 +129,35 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 	React.version
 
 At the time of writing this is returning `"0.13.3"` which is quite an old version of React which does not play nicely with many other React components. As I stated earlier, I am not in favour of Gems including React source code as I would rather manage this using NPM as it handles dependancies between front end components really well. With this in mind, the next thing we will do is install Webpack so we can have NPM manage our front end assets.
+
+## Step 3 Webpack for managing front end assets
+
+[We will use the Webpack Rails Gem](https://github.com/mipearson/webpack-rails)
+
+Run through the *Installation* instructions and you will end up with the following new files:
+
+	package.json (for managing your NPM modules)
+	procfile (for starting webpack-dev-server alongside your rails server)
+	webpack\application.js (for requiring JavaScript libraries for inclusion by Webpack)
+	config\webpack.config.js (for configuring Webpack)
+
+Also note that your `.gitignore` now includes
+
+	# Added by webpack-rails
+	/node_modules
+	/public/webpack
+
+Assuming that you have NPM already installed (if you do not then you need to install it now), run
+
+	npm install
+
+which will download `webpack-dev-server` and other components into your `node-modules` folder. 
+
+One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode
+
+	<%= javascript_include_tag *webpack_asset_paths("application") %>
+
+Assuming all went well you can now start your rails server agin using foreman
+
+	foreman start
 

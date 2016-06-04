@@ -25,6 +25,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # react-rb gems
 gem "reactive_rails_generator"
+gem 'reactive-ruby'
+gem 'react-rails', '~> 1.3.0'
+gem 'opal-rails', '>= 0.8.1'
+gem 'therubyracer', platforms: :ruby
+
+# webpack rails
+gem 'webpack-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -48,8 +55,4 @@ group :development do
   gem 'spring'
 end
 
-
-gem 'reactive-ruby'
-gem 'react-rails', '~> 1.3.0'
-gem 'opal-rails', '>= 0.8.1'
-gem 'therubyracer', platforms: :ruby
+gem 'foreman'
