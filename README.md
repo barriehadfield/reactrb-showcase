@@ -1,6 +1,6 @@
 #Reactrb Showcase
 
-This is a simple rails app showcasing Reactrb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how Reactrb and associated technologies work together. This showcase is intended to be a companion project to the excellent Reactrb tutorials already written (see end).
+This is a simple rails app showcasing Reactrb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how Reactrb and associated technologies work together. This showcase is intended to be a companion project to the excellent Reactrb tutorials already written (see [Further Reading](#further-reading)).
 
 + [Introduction](#introduction)
 	+ Introductions to Reactrb
