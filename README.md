@@ -1,4 +1,4 @@
-#Reactrb Showcase
+#Reactrb Showcase - DRAFT
 
 This is a simple rails app showcasing Reactrb, Opal and associated technologies. This showcase application is not intended as a comprehensive tutorial but rather a set of examples that show how Reactrb and associated technologies work together. This showcase is intended to be a companion project to the excellent Reactrb tutorials already written (see [Further Reading](#further-reading)).
 
@@ -12,7 +12,7 @@ This is a simple rails app showcasing Reactrb, Opal and associated technologies.
 	+ Step 2: Adding React-rb
 	+ Step 3: Webpack for managing front-end assets
 	+ Step 4: Installing React through NPM and Webpack
-+ React Bootstrap
++ [Working with React Bootstrap](#working-with-react-bootstrap)
 + Reactrb-Router
 + [Further reading](#further-reading)
 	+ Other Reactrb tutorials
@@ -45,6 +45,8 @@ Several of the Gems we will use here come with their own source code copy of Rea
 ### Using NPM and Webpack alongside Rails 
 
 I have found this to be an excellent combination which allows for all the front end assets to be installed via NPM which then play very nicely with Webpack which will co-exist happily with Sprockets. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work. 
+
+One consideration is that you need to pay attention to the version of React being included by the [React Rails](https://github.com/reactjs/react-rails) gem and NPM. I would suggest you use the React version supplied by the gem and set the NPM version accordingly. This will create a happy medium where you will know that React Rails is using a supported version of React and all your front-end assets versions are locked to the same React version.    
 
 + [NPM](https://www.npmjs.com/)
 + [Webpack](https://www.npmjs.com/package/webpack)
@@ -112,7 +114,7 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 	React.version
 
-A note on React versions: Reactrb includes the React Rails gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so it is best to decide where React will be included. <<<<<Todo>>>>>
+A note on React versions: Reactrb includes the React Rails gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so pay particular attention to the version of React you have (via the gem) and the version you install via NPM below.
 
 ###Step 3: Webpack for managing front-end assets
 
@@ -149,24 +151,67 @@ At this point you should have a working server with Webpack hot-loading any comp
 
 ###Step 4: Installing React through NPM and Webpack
 
-Installing React is very simple
+Installing React is very simple (note the @version which matches the version of React you have installed via the React Rails gem)
 
-	npm install react react-dom --save
+	npm install react@15.0.2 react-dom@15.0.2 --save
 
-This will install React (latest version) and also ReactDOM into your `node-modules` folder and also add the fact that these are installed to your `package.json`. You can now delete your `node-modules` folder at any time and simply `npm install` to install everything listed in `package.json`. Webpack does an excellent job of managing dependancies between NPM assets but you might find yourself deleting your `node-modules` folder fairly often as that is often the advice to resolve strange conflicts. 
+This will install React and also ReactDOM into your `node-modules` folder and also add the fact that these are installed to your `package.json`. You can now delete your `node-modules` folder at any time and simply `npm install` to install everything listed in `package.json`. Webpack does an excellent job of managing dependancies between NPM assets but you might find yourself deleting your `node-modules` folder fairly often as that is often the advice to resolve strange conflicts. 
 
-Finally you need to `require` React and React DOM in webpack/application.js 
+***TODO Normally next you need to `require` React and React DOM in webpack/application.js, but this will result in multiple copies of React being loaded - one from the React Rails gem and one from Webpack. 
 
 	window.React = require('react')
 	window.ReactDOM = require('react-dom')
 
-If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). You might also notice that there are warnings from React. 
+****TODO If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). You might also notice that there are warnings from React. 
 
 	Warning: React.createElement: type should not be null, undefined, boolean, or number. It should be a string (for DOM elements) or a ReactClass (for composite components).
 
-This has happened because there are now two different versions of React loaded - one from the Reactrb gem and one from Webpack! The warning is of course no help at all in determining that but I can save you many hours of searching as I eventually found that this was the problem. 
+This has happened because there are now two different versions of React loaded - one from the Reactrb gem and one from Webpack. The warning is of course no help at all in determining that but I can save you many hours of searching as I eventually found that this was the problem. 
 
-My solution to this problem has been to remove the older copy of React from the gem and rely on NPM and Webpack to install React as this gives me greater control of which precisely which version is being used. 
+*****TODO My solution to this problem has been to remove the older copy of React from the gem and rely on NPM and Webpack to install React as this gives me greater control of which precisely which version is being used. 
+
+##Working with React Bootstrap
+
+[We will be using this native React library](https://react-bootstrap.github.io/)
+
+The main purpose for React Bootstrap is that it abstracts away verbost HTML & CSS code into React components which makes it a lot cleaner for React JSX developers. One of the very lovely things about Reactrb is that we already work in beautiful Ruby. To emphasise this point, consider the following:
+
+	Example 1 In HTML (without React Bootstrap):
+	<button id="something-btn" type="button" class="btn btn-success btn-sm">
+	  Something
+	</button>
+	$('#something-btn').click(someCallback);
+
+	Example 2 In JSX (with React Bootstrap):
+	<Button bsStyle="success" bsSize="small" onClick={someCallback}>
+	  Something
+	</Button> 
+
+	Example 3 In Reactrb (without React Bootstrap):
+	button.btn_success.btn_sm {'Something'}.on(:click) do
+		someMethod
+	end
+
+	Example 4 In Reactrb (with React Bootstrap):
+	Bs.Button(bsStyle: 'success' bsSize: "small").on(:click) do
+		someMethod
+	end
+
+As a Reactrb developer, I prefer example 3 above. If I were a JSX developer I would completely understand the advantage of abstracting Bootstrap CSS into React Components so I don't have to work directly with CSS, but this is not the case with Reactrb as CSS classes are added to HTML elements with simple dot notation 
+
+	span.pull_right {}
+
+compiles to 
+
+	<span class='pull-right'></span>
+
+So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worrying about React Bootstrap? For one very simple reason: Bootstrap JavaScript based components will not preform as they do with React as without React. Anything that requires `bootstrap.js` will not play nicely with with React and without the React Bootstrap project you would need to implement all that functionality yourself. A good example of this are Bootstrap Navbars which are a combination of CSS and JavaScript, all of which has been re-implemented with React by the React Bootstrap contributors. 
+
+Lets implement a Navbar in this project using React Bootstrap in Reactrb. First, we need to install Bootstrap and React Bootstrap:
+
+	npm install bootstrap react-bootstrap --save
+
+
 
 ##Further reading
 
