@@ -15,7 +15,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + Reactrb-Router
 + [Further reading](#further-reading)
 	+ Other Reactrb tutorials
-	+ Other great resources
+	+ Other Reactrb resources
 	+ Reactrb powered by React
 	+ Opal under the covers
 
@@ -216,11 +216,11 @@ See https://github.com/fkchang/getting-started-reactrb-webpack/blob/master/app/v
 + [Getting started with Reactrb and Rails](https://github.com/loicboutet/reactrb_tutorial)
 + [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
 + [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
++ [Flux pattern in Reactrb](https://github.com/reactrb/reactrb.github.io/wiki/Sending-data-from-deeply-nested-components)
 
-###Other great resources
+###Other Reactrb resources
 + [Reactrb website](http://reactrb.org/)
-+ [Reactrb GitHub site](https://github.com/zetachang/react.rb)
-+ [Opal website](http://opalrb.org/)
++ [Reactrb GitHub site](https://github.com/reactrb/reactrb)
 
 ###Reactrb is powered by React
 
