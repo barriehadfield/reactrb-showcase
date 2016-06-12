@@ -30,7 +30,7 @@ I have found Webpack and Rails to be an excellent combination which allows for a
 
 This tutorial requires that Ruby, Rails, NPM and Webpack are installed. Please see their websites for installation instructions.
 
-### Technologies used in this showcase app
+### Technologies highlighted in this showcase app
 
 + For the backend we are using Rails 4.2.6 with Ruby 2.3.1
 + NPM and Webpack to manage front end assets
@@ -206,6 +206,20 @@ So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worryin
 Lets implement a Navbar in this project using React Bootstrap in Reactrb. First, we need to install Bootstrap and React Bootstrap:
 
 	npm install bootstrap react-bootstrap --save
+
+And then we need to `require` it in webpack/application.js
+
+	ReactBootstrap = require('react-bootstrap')
+
+If you refresh your browser now and open the JavaScript console we will be able to interact with React Bootstrap
+
+	ReactBootstrap
+
+and you will see the ReactBootstrap object with all its components like Accordion, Alert, Badge, Breadcrumb, etc. This is great news, React Bootstrap is installed and ready to use. Accessing the JavaScript object in this way is a really great way of seeing what you have to work with. Sometimes the documentation for these components is not as accurate as actually seeing the component itself.
+
+Lets recap for a second. We have Reactrb working with an initial component and we have React Bootstrap installed and ready to use, but there is a key piece of the puzzle missing. How do we bridge between Ruby and JavaScript so that we can use a JavaScript based library alongside our beautiful Ruby based components?
+
+Reactrb makes this unbelievably easy and is a testament to its elegance. We simply wrap the JavaScript library in a Ruby class and access it through Ruby. Lets do that next then we will be ready to write our Bootstrap Nav component in Ruby.
 
 
 
