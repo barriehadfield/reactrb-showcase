@@ -5,7 +5,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + [Introduction](#introduction)
 + [Setup](#setup)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
-+ [Further reading](#further-reading) for additional tutorials and resources
++ [Further reading](#further-reading)
 
 ##Introduction
 
@@ -201,6 +201,8 @@ And then we need to `require` it in webpack/application.js
 
 	ReactBootstrap = require('react-bootstrap')
 
+I have also downloaded `bootstrap.css` and added it `assets/stylesheets`. This is a bit of a cheat as I am sure it can be included by Webpack, but for simplicity I have opted for this approach.
+
 If you refresh your browser now and open the JavaScript console we will be able to interact with React Bootstrap
 
 	ReactBootstrap
@@ -252,6 +254,14 @@ Lets go ahead and create our Navbar::Show component in `views/components/navbar/
 			end
 		end
 	end
+
+A few things to notice in the code above:
+
+We add React Bootstrap components simply by `Bs.Name` where `Name` is the component you want to create. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
+
+Notice how I have added an `.on(:click)` even handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
+
+Lets get a little more adventitious now - time for a Modal Dialog.
 
 
 
