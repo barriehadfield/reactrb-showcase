@@ -148,15 +148,15 @@ This will install React and also ReactDOM into your `node-modules` folder and al
 
 Now there are a few changes we need to make to get Webpack working well with Reactrb
 
-Firstly include React in you application.js
+Firstly include React in you `application.js`
 
 	//=require 'react'
 
-Next remove React from your component.rb
+Next remove React from your `component.rb`
 
 	#require 'react'
 
-Lastly add React to your webpack/application.js
+Lastly add React to your `webpack/application.js`
 
 	React = require('react')
 
@@ -166,7 +166,7 @@ If you refresh your browser and check the React version should see the latest ve
 
 [We will be using this native React library](https://react-bootstrap.github.io/)
 
-The main purpose for React Bootstrap is that it abstracts away verbost HTML & CSS code into React components which makes it a lot cleaner for React JSX developers. One of the very lovely things about Reactrb is that we already work in beautiful Ruby. To emphasise this point, consider the following:
+The main purpose for React Bootstrap is that it abstracts away verbose HTML & CSS code into React components which makes it a lot cleaner for React JSX developers. One of the very lovely things about Reactrb is that we already work in beautiful Ruby. To emphasise this point, consider the following:
 
 Example 1 - In HTML (without React Bootstrap):
 
@@ -233,7 +233,7 @@ The code above defines a new class `Rb` which `imports` the JavaScript based Rea
 
 Lets go ahead and create our Navbar::Show component in `views/components/navbar/show.rb`
 
-	`module Components
+	module Components
 	  module Navbar
 	    class Show < React::Component::Base
 				def render
@@ -241,7 +241,6 @@ Lets go ahead and create our Navbar::Show component in `views/components/navbar/
 	    end
 	  end
 	end
-`
 
 
 ##Further reading
