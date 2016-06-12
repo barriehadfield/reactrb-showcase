@@ -25,22 +25,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # react-rb gems
 gem "reactive_rails_generator"
-gem 'reactive-ruby'
+gem 'reactrb'
 gem 'react-rails', '~> 1.7.1'
 gem 'opal-rails', '>= 0.8.1'
 gem 'therubyracer', platforms: :ruby
 
 # webpack rails
 gem 'webpack-rails'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# foreman to start rails and webpack
+gem 'foreman'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,5 +47,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-gem 'foreman'

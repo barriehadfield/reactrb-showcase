@@ -11,7 +11,7 @@
 // about supported directives.
 //= require 'components'
 //= require 'react_ujs'
-//
+//= require 'react'
 //= require jquery
 //= require jquery_ujs
 Opal.load('components');
