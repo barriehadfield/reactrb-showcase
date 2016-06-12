@@ -5,6 +5,10 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + [Introduction](#introduction)
 + [Setup](#setup)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
++ Reactrb Router
++ Opal IRB
++ Reactrb Hotloader
++ Reactrb Reactive Record
 + [Further reading](#further-reading)
 
 ##Introduction
@@ -261,9 +265,12 @@ We add React Bootstrap components simply by `Bs.Name` where `Name` is the compon
 
 Notice how I have added an `.on(:click)` even handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
 
-Lets get a little more adventitious now - time for a Modal Dialog.
+TODO:
 
-
++ Reactrb Router
++ Opal IRB
++ Reactrb Hotloader
++ Reactrb Reactive Record
 
 ##Further reading
 
