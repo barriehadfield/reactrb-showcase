@@ -1,5 +1,5 @@
 module Components
-  class Bs < React::NativeLibrary
+  class Rb < React::NativeLibrary
     imports 'ReactBootstrap'
   end
 end

@@ -197,7 +197,7 @@ As you can see, example 3 & 4 are not that different and as a Reactrb developer,
 
 	span.pull_right {}
 
-compiles to
+compiles to (note the conversion from _ to -)
 
 	<span class='pull-right'></span>
 
@@ -224,12 +224,23 @@ Reactrb makes this unbelievably easy which is a testament to its elegance, power
 Create a new folder `views/components/shared` and add a file `bootstrap.rb` (I like to keep all my shared components in a specific folder and then one folder per application concept)
 
 	module Components
-		class Bs < React::NativeLibrary
+		class Rb < React::NativeLibrary
 			imports 'ReactBootstrap'
 		end
 	end
 
-The code above defines a new class `Bs` which `imports` the JavaScript based React Bootstrap library into Ruby for us to use in our Reactrb components. We are wrapping a JavaScript library with a Ruby class.
+The code above defines a new class `Rb` which `imports` the JavaScript based React Bootstrap library into Ruby for us to use in our Reactrb components. We are wrapping a JavaScript library with a Ruby class.
+
+Lets go ahead and create our Navbar::Show component in `views/components/navbar/show.rb`
+
+	module Components
+	  module Navbar
+	    class Show < React::Component::Base
+				def render
+				end
+	    end
+	  end
+	end
 
 
 
