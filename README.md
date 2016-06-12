@@ -215,11 +215,21 @@ If you refresh your browser now and open the JavaScript console we will be able 
 
 	ReactBootstrap
 
-and you will see the ReactBootstrap object with all its components like Accordion, Alert, Badge, Breadcrumb, etc. This is great news, React Bootstrap is installed and ready to use. Accessing the JavaScript object in this way is a really great way of seeing what you have to work with. Sometimes the documentation for these components is not as accurate as actually seeing the component itself.
+and you will see the ReactBootstrap object with all its components like Accordion, Alert, Badge, Breadcrumb, etc. This is great news, React Bootstrap is installed and ready to use. Accessing the JavaScript object in this way is a really great way to see what you have to work with. Sometimes the documentation of a component is not as accurate as actually seeing what you have in the component itself.
 
 Lets recap for a second. We have Reactrb working with an initial component and we have React Bootstrap installed and ready to use, but there is a key piece of the puzzle missing. How do we bridge between Ruby and JavaScript so that we can use a JavaScript based library alongside our beautiful Ruby based components?
 
-Reactrb makes this unbelievably easy and is a testament to its elegance. We simply wrap the JavaScript library in a Ruby class and access it through Ruby. Lets do that next then we will be ready to write our Bootstrap Nav component in Ruby.
+Reactrb makes this unbelievably easy which is a testament to its elegance, power and simplicity. We simply wrap the JavaScript library in a Ruby class and access it through Ruby. Lets do that next then we will be ready to write our Bootstrap Nav component in Ruby.
+
+Create a new folder `views/components/shared` and add a file `bootstrap.rb` (I like to keep all my shared components in a specific folder and then one folder per application concept)
+
+	module Components
+		class Bs < React::NativeLibrary
+			imports 'ReactBootstrap'
+		end
+	end
+
+The code above defines a new class `Bs` which `imports` the JavaScript based React Bootstrap library into Ruby for us to use in our Reactrb components. We are wrapping a JavaScript library with a Ruby class.
 
 
 
