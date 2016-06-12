@@ -128,7 +128,7 @@ which will download `webpack-dev-server` and other components into your `node-mo
 
 One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode
 
-	`<%= javascript_include_tag *webpack_asset_paths("application") %>`
+`<%= javascript_include_tag *webpack_asset_paths("application") %>`
 
 Assuming all went well you can now start your rails server agin using foreman
 
