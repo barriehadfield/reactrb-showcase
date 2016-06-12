@@ -35,6 +35,8 @@ This tutorial requires that Ruby, Rails, NPM and Webpack are installed. Please s
 + For the backend we are using Rails 4.2.6 with Ruby 2.3.1
 + NPM and Webpack to manage front end assets
 + [React Rails](https://github.com/reactjs/react-rails) to use React with Rails
++ [Reactrb](https://github.com/reactrb/reactrb) to write reactive UI components with Ruby's elegance
++ [React Bootstrap](https://react-bootstrap.github.io/) to show how to use native React components in Reactrb
 
 ##Setup
 
