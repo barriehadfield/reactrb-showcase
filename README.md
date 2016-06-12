@@ -146,54 +146,44 @@ Installing React is very simple via NPM (note the @version which matches the ver
 
 This will install React and also ReactDOM into your `node-modules` folder and also add the fact that these are installed to your `package.json`. You can now delete your `node-modules` folder at any time and simply `npm install` to install everything listed in `package.json`. Webpack does an excellent job of managing dependancies between NPM assets but you might find yourself deleting your `node-modules` folder fairly often as that is often the advice to resolve strange conflicts.
 
-Now there are a few changes we need to make to get Webpack working well with Reactrb
+add ReactDOM to your `webpack/application.js`
 
-Firstly include React in you `application.js`
-
-	//=require 'react'
-
-Next remove React from your `component.rb`
-
-	#require 'react'
-
-Lastly add React to your `webpack/application.js`
-
-	React = require('react')
+	ReactDOM = require('react-dom')
 
 If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). If you are seeing that version number and no React warnings then all has worked properly and we are ready to start writing some Reactrb components.
 
 ##Working with React Bootstrap
 
-[We will be using this native React library](https://react-bootstrap.github.io/)
+[We will be using React Bootstrap which is a native React library](https://react-bootstrap.github.io/)
 
 The main purpose for React Bootstrap is that it abstracts away verbose HTML & CSS code into React components which makes it a lot cleaner for React JSX developers. One of the very lovely things about Reactrb is that we already work in beautiful Ruby. To emphasise this point, consider the following:
 
-Example 1 - In HTML (without React Bootstrap):
+Sample 1 - In HTML (without React Bootstrap):
 
 	<button id="something-btn" type="button" class="btn btn-success btn-sm">
 	  Something
 	</button>
 	$('#something-btn').click(someCallback);
 
-Example 2 - In JSX (with React Bootstrap components):
+Sample 2 - In JSX (with React Bootstrap components):
 
 	<Button bsStyle="success" bsSize="small" onClick={someCallback}>
 	  Something
 	</Button>
 
-Example 3 - In Reactrb (without React Bootstrap):
+Sample 3 - In Reactrb (without React Bootstrap):
 
 	button.btn_success.btn_sm {'Something'}.on(:click) do
 		someMethod
 	end
 
-Example 4 - In Reactrb (with React Bootstrap):
+Sample 4 - In Reactrb (with React Bootstrap):
 
 	Bs.Button(bsStyle: 'success' bsSize: "small").on(:click) do
 		someMethod
 	end
 
-As you can see, example 3 & 4 are not that different and as a Reactrb developer, I actually prefer example 3. If I were a JavaScript or JSX developer I would completely understand the advantage of abstracting Bootstrap CSS into React Components so I don't have to work directly with CSS and JavaScript but this is not the case with Reactrb as CSS classes are added to HTML elements with simple dot notation:
+As you can see, sample 3 & 4 are not that different and as a Reactrb developer, I actually prefer sample 3. If I were a JavaScript or JSX developer I would completely understand the advantage of abstracting Bootstrap CSS into React Components so I don't have to work directly with CSS and JavaScript but this is not the case with Reactrb as CSS classes are added to HTML elements with simple dot notation:
 
 	span.pull_right {}
 
