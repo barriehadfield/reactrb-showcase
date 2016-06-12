@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # react-rb gems
-gem "reactive_rails_generator"
+# gem "reactive_rails_generator"
 gem 'reactrb'
 gem 'react-rails', '~> 1.7.1'
 gem 'opal-rails', '>= 0.8.1'

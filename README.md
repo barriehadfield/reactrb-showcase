@@ -224,12 +224,12 @@ Reactrb makes this unbelievably easy which is a testament to its elegance, power
 Create a new folder `views/components/shared` and add a file `bootstrap.rb` (I like to keep all my shared components in a specific folder and then one folder per application concept)
 
 	module Components
-		class Rb < React::NativeLibrary
+		class Bs < React::NativeLibrary
 			imports 'ReactBootstrap'
 		end
 	end
 
-The code above defines a new class `Rb` which `imports` the JavaScript based React Bootstrap library into Ruby for us to use in our Reactrb components. We are wrapping a JavaScript library with a Ruby class.
+The code above defines a new class `Bs` which `imports` the JavaScript based React Bootstrap library for us to use in Ruby with our Reactrb components. We are wrapping a JavaScript library with a Ruby class.
 
 Lets go ahead and create our Navbar::Show component in `views/components/navbar/show.rb`
 
