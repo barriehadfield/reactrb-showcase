@@ -152,15 +152,15 @@ This will install React and also ReactDOM into your `node-modules` folder and al
 
 Now there are a few changes we need to make to get Webpack working well with Reactrb
 
-+ Include React in you application.js
+Firstly include React in you application.js
 
-	//= require 'react'
+	//=require 'react'
 
-+ Remove React from your component.rb
+Next remove React from your component.rb
 
-	# require 'react'
+	#require 'react'
 
-+ Add React to your webpack/application.js
+Lastly add React to your webpack/application.js
 
 	React = require('react')
 
