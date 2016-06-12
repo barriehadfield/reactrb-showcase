@@ -172,32 +172,32 @@ If you refresh your browser and check the React version should see the latest ve
 
 The main purpose for React Bootstrap is that it abstracts away verbost HTML & CSS code into React components which makes it a lot cleaner for React JSX developers. One of the very lovely things about Reactrb is that we already work in beautiful Ruby. To emphasise this point, consider the following:
 
-Example 1 In HTML (without React Bootstrap):
+Example 1 - In HTML (without React Bootstrap):
 
 	<button id="something-btn" type="button" class="btn btn-success btn-sm">
 	  Something
 	</button>
 	$('#something-btn').click(someCallback);
 
-Example 2 In JSX (with React Bootstrap):
+Example 2 - In JSX (with React Bootstrap components):
 
 	<Button bsStyle="success" bsSize="small" onClick={someCallback}>
 	  Something
 	</Button>
 
-Example 3 In Reactrb (without React Bootstrap):
+Example 3 - In Reactrb (without React Bootstrap):
 
 	button.btn_success.btn_sm {'Something'}.on(:click) do
 		someMethod
 	end
 
-Example 4 In Reactrb (with React Bootstrap):
+Example 4 - In Reactrb (with React Bootstrap):
 
 	Bs.Button(bsStyle: 'success' bsSize: "small").on(:click) do
 		someMethod
 	end
 
-As a Reactrb developer, I prefer example 3 above. If I were a JSX developer I would completely understand the advantage of abstracting Bootstrap CSS into React Components so I don't have to work directly with CSS, but this is not the case with Reactrb as CSS classes are added to HTML elements with simple dot notation
+As you can see, example 3 & 4 are not that different and as a Reactrb developer, I actually prefer example 3. If I were a JavaScript or JSX developer I would completely understand the advantage of abstracting Bootstrap CSS into React Components so I don't have to work directly with CSS and JavaScript but this is not the case with Reactrb as CSS classes are added to HTML elements with simple dot notation:
 
 	span.pull_right {}
 
@@ -210,8 +210,6 @@ So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worryin
 Lets implement a Navbar in this project using React Bootstrap in Reactrb. First, we need to install Bootstrap and React Bootstrap:
 
 	npm install bootstrap react-bootstrap --save
-
-See https://github.com/fkchang/getting-started-reactrb-webpack/blob/master/app/views/components/webpack/react_bootstrap.rb
 
 
 
