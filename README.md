@@ -10,7 +10,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 	+ Step 1: Creating a new Rails application
 	+ Step 2: Adding React-rb
 	+ Step 3: Webpack for managing front-end assets
-	+ Step 4: Installing React through NPM and Webpack
+	+ Step 4: Installing React using NPM and Webpack
 + [Working with React Bootstrap](#working-with-react-bootstrap)
 + Reactrb-Router
 + [Further reading](#further-reading)
@@ -142,7 +142,7 @@ Assuming all went well you can now start your rails server agin using foreman
 
 At this point you should have a working server with Webpack hot-loading any components added via NPM.
 
-###Step 4: Installing React through NPM and Webpack
+###Step 4: Installing React using NPM and Webpack
 
 Installing React is very simple (note the @version which matches the version of React you have installed via the React Rails gem)
 
@@ -172,23 +172,27 @@ If you refresh your browser and check the React version should see the latest ve
 
 The main purpose for React Bootstrap is that it abstracts away verbost HTML & CSS code into React components which makes it a lot cleaner for React JSX developers. One of the very lovely things about Reactrb is that we already work in beautiful Ruby. To emphasise this point, consider the following:
 
-	Example 1 In HTML (without React Bootstrap):
+Example 1 In HTML (without React Bootstrap):
+
 	<button id="something-btn" type="button" class="btn btn-success btn-sm">
 	  Something
 	</button>
 	$('#something-btn').click(someCallback);
 
-	Example 2 In JSX (with React Bootstrap):
+Example 2 In JSX (with React Bootstrap):
+
 	<Button bsStyle="success" bsSize="small" onClick={someCallback}>
 	  Something
 	</Button>
 
-	Example 3 In Reactrb (without React Bootstrap):
+Example 3 In Reactrb (without React Bootstrap):
+
 	button.btn_success.btn_sm {'Something'}.on(:click) do
 		someMethod
 	end
 
-	Example 4 In Reactrb (with React Bootstrap):
+Example 4 In Reactrb (with React Bootstrap):
+
 	Bs.Button(bsStyle: 'success' bsSize: "small").on(:click) do
 		someMethod
 	end
