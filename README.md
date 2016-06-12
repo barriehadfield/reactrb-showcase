@@ -42,7 +42,10 @@ I have found Webpack and Rails to be an excellent combination which allows for a
 
 This tutorial requires that Ruby, Rails, NPM and Webpack are installed. Please see their websites for installation instructions.
 
-One consideration that you need to pay close attention to is the version of React being included by the [React Rails](https://github.com/reactjs/react-rails) gem and the version being included by Webpack via NPM. I would suggest you use the React version supplied by the gem and set the NPM version accordingly. This will create a happy medium where you will know that React Rails is using a supported version of React and all your front-end assets versions are locked to the same React version by Webpack.    
+### Technologies used in this showcase app
+
++ For the backend we are using Rails 4.2.6 with Ruby 2.3.1
++ [React Rails](https://github.com/reactjs/react-rails) to use React and Rails
 
 ##Setup
 
@@ -144,7 +147,9 @@ At this point you should have a working server with Webpack hot-loading any comp
 
 ###Step 4: Installing React using NPM and Webpack
 
-Installing React is very simple (note the @version which matches the version of React you have installed via the React Rails gem)
+One consideration that you need to pay close attention to is the version of React being included by the [React Rails](https://github.com/reactjs/react-rails) gem and the version being included by Webpack via NPM. I would suggest you use the React version supplied by the gem and set the NPM version accordingly. This will create a happy medium where you will know that React Rails is using a supported version of React and all your front-end assets versions are locked to the same React version by Webpack.    
+
+Installing React is very simple via NPM (note the @version which matches the version of React you have installed via the React Rails gem)
 
 	npm install react@15.0.2 react-dom@15.0.2 --save
 
