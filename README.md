@@ -128,7 +128,7 @@ which will download `webpack-dev-server` and other components into your `node-mo
 
 One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode
 
-	TODO - put the star in : <%= javascript_include_tag webpack_asset_paths("application") %>
+	`<%= javascript_include_tag *webpack_asset_paths("application") %>`
 
 Assuming all went well you can now start your rails server agin using foreman
 
@@ -233,7 +233,7 @@ The code above defines a new class `Rb` which `imports` the JavaScript based Rea
 
 Lets go ahead and create our Navbar::Show component in `views/components/navbar/show.rb`
 
-	module Components
+	`module Components
 	  module Navbar
 	    class Show < React::Component::Base
 				def render
@@ -241,7 +241,7 @@ Lets go ahead and create our Navbar::Show component in `views/components/navbar/
 	    end
 	  end
 	end
-
+`
 
 
 ##Further reading
