@@ -3,21 +3,9 @@
 This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React Bootstrap and other associated technologies.  This showcase is intended to be a companion project to the excellent Reactrb tutorials already written which you can find in [Further Reading](#further-reading) below.
 
 + [Introduction](#introduction)
-	+ Introductions to Reactrb
-	+ Reactrb Help and Questions
-	+ Using NPM and Webpack alongside Rails
 + [Setup](#setup)
-	+ Step 1: Creating a new Rails application
-	+ Step 2: Adding React-rb
-	+ Step 3: Webpack for managing front-end assets
-	+ Step 4: Installing React using NPM and Webpack
 + [Working with React Bootstrap](#working-with-react-bootstrap)
-+ Reactrb-Router
-+ [Further reading](#further-reading)
-	+ Other Reactrb tutorials
-	+ Other Reactrb resources
-	+ Reactrb powered by React
-	+ Opal under the covers
++ [Further reading](#further-reading) for additional tutorials and resources
 
 ##Introduction
 
@@ -45,7 +33,8 @@ This tutorial requires that Ruby, Rails, NPM and Webpack are installed. Please s
 ### Technologies used in this showcase app
 
 + For the backend we are using Rails 4.2.6 with Ruby 2.3.1
-+ [React Rails](https://github.com/reactjs/react-rails) to use React and Rails
++ NPM and Webpack to manage front end assets
++ [React Rails](https://github.com/reactjs/react-rails) to use React with Rails
 
 ##Setup
 
