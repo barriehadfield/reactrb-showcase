@@ -1,4 +1,4 @@
-#Reactrb Showcase - DRAFT
+# Reactrb Showcase - DRAFT
 
 This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React Bootstrap and other associated technologies.  This showcase is intended to be a companion project to the excellent Reactrb tutorials already written which you can find in [Further Reading](#further-reading) below.
 
@@ -11,13 +11,13 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + Reactrb Reactive Record
 + [Further reading](#further-reading)
 
-##Introduction
+## Introduction
 
-###Introductions to Reactrb
+### Introductions to Reactrb
 + [An overview of Reactrb by Mitch VanDuyn](http://slides.com/mitchvanduyn/deck-1-3#/)
 + [Power of React-js with the joy of Ruby by Forrest Chang](http://www.slideshare.net/fkchang/reactrb-all-the-power-of-reactjs-with-all-the-joy-of-ruby)
 
-###Reactrb Help and Questions
+### Reactrb Help and Questions
 
 + [Gitter.im](https://gitter.im/reactrb/chat) for general questions, discussion, and interactive help.
 + [Stack Overflow](http://stackoverflow.com/questions/tagged/reactrb) tag `reactrb` for specific problems.
@@ -42,9 +42,9 @@ This tutorial requires that Ruby, Rails, NPM and Webpack are installed. Please s
 + [Reactrb](https://github.com/reactrb/reactrb) to write reactive UI components with Ruby's elegance
 + [React Bootstrap](https://react-bootstrap.github.io/) to show how to use native React components in Reactrb
 
-##Setup
+## Setup
 
-###Step 1: Creating a new Rails application
+### Step 1: Creating a new Rails application
 
 	rails new reactrb-showcase
 	cd reactrb-showcase
@@ -60,7 +60,7 @@ And in your browser
 
 You should be seeing the Rails Welcome aboard page. Great, Rails is now installed. Lets get started with the interesting stuff.
 
-###Step 2: Adding Reactrb
+### Step 2: Adding Reactrb
 
 [We will use the Reactrb Rails Generator Gem](https://github.com/loicboutet/reactive-rails-generator)
 
@@ -107,7 +107,7 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 A note on React versions: Reactrb includes the [React Rails](https://github.com/reactjs/react-rails) gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so pay particular attention to the version of React you have (via the React Rails gem) and the version we are about to install via NPM. We will need to ensure these versions are the same. At the time writing, the React version being installed is 15.0.2 so we install the same version via NPN. To change this, see [React Rails versions](https://github.com/reactjs/react-rails/blob/master/VERSIONS.md) which will then let you specify which version of React to include via the React Rails gem.
 
-###Step 3: Webpack for managing front-end assets
+### Step 3: Webpack for managing front-end assets
 
 [We will use the Webpack Rails Gem](https://github.com/mipearson/webpack-rails)
 
@@ -140,7 +140,7 @@ Assuming all went well you can now start your rails server agin using foreman
 
 At this point you should have a working server with Webpack hot-loading any components added via NPM.
 
-###Step 4: Installing React using NPM and Webpack
+### Step 4: Installing React using NPM and Webpack
 
 One consideration that you need to pay close attention to is the version of React being included by the [React Rails](https://github.com/reactjs/react-rails) gem and the version being included by Webpack via NPM. I would suggest you use the React version supplied by the gem and set the NPM version accordingly. This will create a happy medium where you will know that React Rails is using a supported version of React and all your front-end assets versions are locked to the same React version by Webpack.    
 
@@ -156,7 +156,7 @@ add ReactDOM to your `webpack/application.js`
 
 If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). If you are seeing that version number and no React warnings then all has worked properly and we are ready to start writing some Reactrb components.
 
-##Working with React Bootstrap
+## Working with React Bootstrap
 
 [We will be using React Bootstrap which is a native React library](https://react-bootstrap.github.io/)
 
@@ -272,20 +272,20 @@ TODO:
 + Reactrb Hotloader
 + Reactrb Reactive Record
 
-##Further reading
+## Further reading
 
-###Other Reactrb tutorials and examples
+### Other Reactrb tutorials and examples
 + [Getting started with Reactrb and Rails](https://github.com/loicboutet/reactrb_tutorial)
 + [ChatRB Demo App](https://github.com/reactrb/reactrb.github.io/blob/master/docs/tutorial.md)
 + [Reactive Record sample ToDo app](https://github.com/loicboutet/reactivetodo)
 + [Flux pattern in Reactrb](https://github.com/reactrb/reactrb.github.io/wiki/Sending-data-from-deeply-nested-components)
 + [Getting with Reactrb, React Bootstrap and Webpack](https://github.com/fkchang/getting-started-reactrb-webpack)
 
-###Other Reactrb resources
+### Other Reactrb resources
 + [Reactrb website](http://reactrb.org/)
 + [Reactrb GitHub site](https://github.com/reactrb/reactrb)
 
-###Reactrb is powered by React
+### Reactrb is powered by React
 
 Reactrb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to compliment your understanding of Reactrb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to Reactrb equivalents. To make headway with Reactrb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start. (Make sure you see the Flux pattern in Reactrb above for an example of how to communicate between grandparent and child components).   
 
@@ -294,7 +294,7 @@ Reactrb and friends are in most cases simple DSL Ruby wrappers to the underlying
 + [React Router](https://github.com/reactjs/react-router)
 + [React Bootstrap](https://react-bootstrap.github.io/)
 
-###Opal under the covers
+### Opal under the covers
 
 Reactrb is a DSL wrapper of React which uses Opal to compile Ruby code to ES5 native JavaScript. If you have not used Opal before then you should at a minimum read the excellent guides as they will teach you enough to get you started with Reactrb.
 
