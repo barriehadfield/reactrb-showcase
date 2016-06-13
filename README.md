@@ -146,7 +146,7 @@ We are now expecting two sets of technologies (Rails with Sprockets) and (NPM wi
 
 + Webpack assets must be included and load __before__ the Rails ones (as per the change we have made above)
 + React pre-rendering will not work while you are using `Webpack-dev-server` as the Webpack assets are delivered directly into the browser. To see pre-rendering working you will need to compile your Webpack assets manually with `rake webpack:compile` and then switch off the dev server with by adding this line to `application.rb`: `::Rails.configuration.webpack.dev_server.enabled = false`
-+ Ensure that your components and libraries are installed either by Webpack (via NPM) or Rails (via a GEM) and not by boter. If you start getting error messages saying that you are including two copies of React this will be the most likely cause.
++ Ensure that your components and libraries are installed either by Webpack (via NPM) or Rails (via a GEM) and never by both. If you start getting error messages saying that you are including two copies of React this will be the most likely cause.
 
 Assuming all went well you can now start your rails server agin using foreman
 
