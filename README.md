@@ -147,7 +147,7 @@ One final thing we need to do is add the entry point to our Rails application so
 	<head>
 		<title>ReactrbShowcase</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		__<%= javascript_include_tag *webpack_asset_paths("application") %>__
+		<%= javascript_include_tag `*webpack_asset_paths("application")` %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
