@@ -152,19 +152,19 @@ One final thing we need to do is add the entry point to our Rails application so
 		<%= csrf_meta_tags %>
 	</head>
 ```
-__And now for a really important part:__
+__An important note abut Webpack and Rails wth React and Reactrb:__
 
 We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, `Webpack-dev-server` is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well ``provided`` these rules are followed:
 
 + Webpack assets must be included and load __before__ the Rails ones
-+ React pre-rendering will not work while you are using `Webpack-dev-server` as the Webpack assets are delivered directly into the browser
-+ DO not `require` one component in two places, either decide to use Rails (via a Gem) or Webpack (via NPM) per component you include.
++ React pre-rendering will not work while you are using `Webpack-dev-server` as the Webpack assets are delivered directly into the browser. To see re-rendering working you will need to compile your Webpack assets manually with `rake webpack:compile` and then switch off the dev server with by adding this line to `application.rb`: `::Rails.configuration.webpack.dev_server.enabled = false`
++ Ensure that your components and libraries are installed either by Webpack (via NPM) or Rails (via a GEM) and not by boter. If you start getting error messages saying that you are including two copies of React this will be the most likely cause.
 
 Assuming all went well you can now start your rails server agin using foreman
 
 	foreman start
 
-At this point you should have a working server with Webpack hot-loading any components added via NPM.
+At this point you should have a working server with Webpack hot-loading any components added via NPM. Time yo add some front end assets via NPM!
 
 ### Step 4: Installing React using NPM and Webpack
 
