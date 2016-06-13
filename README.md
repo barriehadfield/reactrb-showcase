@@ -109,6 +109,18 @@ A note on React versions: Reactrb includes the [React Rails](https://github.com/
 
 ### Step 3: Webpack for managing front-end assets
 
+---
+
+The order FE assets is loaded is important
+1. Webpack loads React, ReactDOM and other libraries
+2. Sproockets loads all other JS an CSS (none that were loaded by Webpack)
+
+Server side rendering
+Webpack-dev-server hotloadsassets into browser, so server side rendering will not work if enabled
+Switch off     # ::Rails.configuration.webpack.dev_server.enabled = false in application.rb
+
+
+---
 [We will use the Webpack Rails Gem](https://github.com/mipearson/webpack-rails)
 
 Run through the Installation instructions and you will end up with the following new files:
@@ -133,6 +145,14 @@ which will download `webpack-dev-server` and other components into your `node-mo
 One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode
 
 `<%= javascript_include_tag *webpack_asset_paths("application") %>`
+
+''And now for a really important part:''
+
+We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, Webpack-dev-server is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well ''provided'' these rules are followed:
+
++ Webpack assets must be included annd load ''before'' the Rails ones
++ React pre-rendering will not work while you are using Webpack-dev-server as the Webpack assets are delivered directly into the browser
++ DO not load one think in two places, either decide to use Rails (via a Gem) or Webpack (via NPM) per component you include
 
 Assuming all went well you can now start your rails server agin using foreman
 

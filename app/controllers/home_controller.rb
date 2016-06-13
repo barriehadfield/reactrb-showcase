@@ -3,6 +3,6 @@ class HomeController < ApplicationController
   end
 
   def navbar
-    # render component: 'Navbar::Show'
+   #render component: 'Navbar::Show'
   end
 end
