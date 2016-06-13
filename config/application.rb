@@ -21,6 +21,10 @@ module ReactrbShowcase
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    #  uncomment this line to switch off webpack_dev_server
+    # and make sure you rake webpack:compile to statically compile your webpack assets
+    # ::Rails.configuration.webpack.dev_server.enabled = false
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end

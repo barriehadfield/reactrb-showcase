@@ -140,7 +140,7 @@ One final thing we need to do is add the entry point to our Rails application so
 		<%= csrf_meta_tags %>
 	</head>
 ```
-__Three Golden Rules when working with Webpack, Rails, React and Reactrb:__
+__Three Golden Rules__ when working with Webpack, Rails, React and Reactrb:
 
 We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, `Webpack-dev-server` is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well __provided__ you follow these three golden rules:
 
@@ -164,9 +164,20 @@ Installing React is very simple via NPM (note the @version which matches the ver
 
 This will install React and also ReactDOM into your `node-modules` folder and also add the fact that these are installed to your `package.json`. You can now delete your `node-modules` folder at any time and simply `npm install` to install everything listed in `package.json`. Webpack does an excellent job of managing dependancies between NPM assets but you might find yourself deleting your `node-modules` folder fairly often as that is often the advice to resolve strange conflicts.
 
-add ReactDOM to your `webpack/application.js`
+Now we need to tell Webpack that its its job to load React and ReactDOM by adding this to your `webpack/application.js`
 
+	React = require('react')
 	ReactDOM = require('react-dom')
+
+And then of course (following the Three Golden Rules above), we need to make sure that React is not being included by Rails anywhere else.
+
+In `views/components.rb` make sure React is __not__ required
+
+	require 'opal'
+	# require 'react'
+	require 'reactrb'
+
+And check your `assets/javascripts/application.js` to ensure that React has not been required there. If it has then remove it. 
 
 If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). If you are seeing that version number and no React warnings then all has worked properly and we are ready to start writing some Reactrb components.
 
