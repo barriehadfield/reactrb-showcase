@@ -132,13 +132,13 @@ which will download `webpack-dev-server` and other components into your `node-mo
 
 One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode. This must be added __BEFORE__ your other `_javascript_include_tag`
 ```
-	<head>
-		<title>ReactrbShowcase</title>
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag  *webpack_asset_paths("application") %>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		<%= csrf_meta_tags %>
-	</head>
+<head>
+	<title>ReactrbShowcase</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag  *webpack_asset_paths("application") %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
 ```
 __Three Golden Rules__ when working with Webpack, Rails, React and Reactrb:
 
