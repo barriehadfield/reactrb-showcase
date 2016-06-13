@@ -143,15 +143,15 @@ Assuming that you have NPM already installed (if you do not then you need to ins
 which will download `webpack-dev-server` and other components into your `node-modules` folder.
 
 One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode. This must be added __BEFORE__ your other `_javascript_include_tag`
-
+```
 	<head>
 		<title>ReactrbShowcase</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag `*webpack_asset_paths("application")` %>
+		<%= javascript_include_tag  *webpack_asset_paths("application") %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
-
+```
 __And now for a really important part:__
 
 We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, `Webpack-dev-server` is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well ``provided`` these rules are followed:
