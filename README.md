@@ -174,7 +174,7 @@ Assuming that you have NPM already installed (if you do not then you need to ins
 
 which will download `webpack-dev-server` and other components into your `node-modules` folder.
 
-One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode. This must be added __BEFORE__ your other `_javascript_include_tag`
+One final thing we need to do is add the entry point to our Rails application so Webpack can hot-load its assets in development mode. This must be added __BEFORE__ your other `_javascript_include_tag`, so your `assets\javascripts\application.js` should look like this
 ```
 <head>
 	<title>ReactrbShowcase</title>
@@ -206,7 +206,7 @@ Installing React is very simple via NPM (note the @version which matches the ver
 
 This will install React and also ReactDOM into your `node-modules` folder and also add the fact that these are installed to your `package.json`. You can now delete your `node-modules` folder at any time and simply `npm install` to install everything listed in `package.json`. Webpack does an excellent job of managing dependancies between NPM assets but you might find yourself deleting your `node-modules` folder fairly often as that is often the advice to resolve strange conflicts.
 
-Now we need to tell Webpack that its its job to load React and ReactDOM by adding this to your `webpack/application.js`
+Now we need to tell Webpack that its its job to load React and ReactDOM by the following to `webpack/application.js`
 
 	React = require('react')
 	ReactDOM = require('react-dom')
@@ -250,7 +250,7 @@ Sample 3 - In Reactrb (without React Bootstrap):
 
 Sample 4 - In Reactrb (with React Bootstrap):
 
-	Bs.Button(bsStyle: 'success' bsSize: "small").on(:click) do
+	Bs.Button(bsStyle: 'success' bsSize: "small") {'Something'}.on(:click) do
 		someMethod
 	end
 
@@ -262,7 +262,7 @@ compiles to (note the conversion from _ to -)
 
 	<span class='pull-right'></span>
 
-So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worrying about React Bootstrap? For one very simple reason: Bootstrap JavaScript based components will not preform as they do with React as without React. Anything that requires `bootstrap.js` will not play nicely with with React and without the React Bootstrap project you would need to implement all that functionality yourself. A good example of this are Bootstrap Navbars which are a combination of CSS and JavaScript, all of which has been re-implemented with React by the React Bootstrap contributors.
+So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worrying about React Bootstrap? For one very simple reason: components like Navbar and Modal that requires `bootstrap.js` will not work with React so without the React Bootstrap project you would need to implement all that functionality yourself. The React Bootstrap project has re-implemented all this functionality as React components.
 
 Lets implement a Navbar in this project using React Bootstrap in Reactrb. First, we need to install Bootstrap and React Bootstrap:
 
@@ -276,7 +276,7 @@ I have also downloaded `bootstrap.css` and added it `assets/stylesheets`. This i
 
 If you refresh your browser now and open the JavaScript console we will be able to interact with React Bootstrap
 
-	ReactBootstrap
+In the JavaScript console type: ```ReactBootstrap```
 
 and you will see the ReactBootstrap object with all its components like Accordion, Alert, Badge, Breadcrumb, etc. This is great news, React Bootstrap is installed and ready to use. Accessing the JavaScript object in this way is a really great way to see what you have to work with. Sometimes the documentation of a component is not as accurate as actually seeing what you have in the component itself.
 
@@ -330,7 +330,7 @@ A few things to notice in the code above:
 
 We add React Bootstrap components simply by `Bs.Name` where `Name` is the component you want to create. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
 
-Notice how I have added an `.on(:click)` even handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
+Notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
 
 TODO:
 
