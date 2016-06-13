@@ -146,9 +146,9 @@ One final thing we need to do is add the entry point to our Rails application so
 
 `<%= javascript_include_tag *webpack_asset_paths("application") %>`
 
-''And now for a really important part:''
+``And now for a really important part:``
 
-We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, Webpack-dev-server is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well ''provided'' these rules are followed:
+We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, Webpack-dev-server is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well ``provided`` these rules are followed:
 
 + Webpack assets must be included annd load ''before'' the Rails ones
 + React pre-rendering will not work while you are using Webpack-dev-server as the Webpack assets are delivered directly into the browser
