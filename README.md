@@ -80,6 +80,50 @@ At this stage Reactrb is installed but we don't have any components yet. Lets cr
 
 This will add a new Component at app/views/components/home/show.rb
 
+```
+module Components
+  module Home
+    class Show < React::Component::Base
+
+      # param :my_param
+      # param param_with_default: "default value"
+      # param :param_with_default2, default: "default value" # alternative syntax
+      # param :param_with_type, type: Hash
+      # param :array_of_hashes, type: [Hash]
+      # collect_all_other_params_as :attributes  #collects all other params into a hash
+
+      # The following are the most common lifecycle call backs,
+      # the following are the most common lifecycle call backs# delete any that you are not using.
+      # call backs may also reference an instance method i.e. before_mount :my_method
+
+      before_mount do
+        # any initialization particularly of state variables goes here.
+        # this will execute on server (prerendering) and client.
+      end
+
+      after_mount do
+        # any client only post rendering initialization goes here.
+        # i.e. start timers, HTTP requests, and low level jquery operations etc.
+      end
+
+      before_update do
+        # called whenever a component will be re-rerendered
+      end
+
+      before_unmount do
+        # cleanup any thing (i.e. timers) before component is destroyed
+      end
+
+      def render
+        div do
+          "Home::Show"
+        end
+      end
+    end
+  end
+end
+```
+
 Have a look at this component as it provides the basis for all other Reactrb components you will write. Note that all Reactrb components inherit from `React::Component::Base` but you are free to `include React::Component::Base` instead if you prefer your components inheriting from other classes. Also note how `params` are declared and the `before_mount` (and friends) macros as you will use these extensively. Finally note that every component must have one `render` methord which must return just one DOM `element` which in this example case is a `div`.
 
 Next let's get this simple component rendering on a page. For that we will need a rails controller and a route.
@@ -105,7 +149,7 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 	React.version
 
-A note on React versions: Reactrb includes the [React Rails](https://github.com/reactjs/react-rails) gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so pay particular attention to the version of React you have (via the React Rails gem) and the version we are about to install via NPM. We will need to ensure these versions are the same. At the time writing, the React version being installed is 15.0.2 so we install the same version via NPN. See [React Rails - React  versions](https://github.com/reactjs/react-rails/blob/master/VERSIONS.md) for a lost of React versions supported by different versions of the React Rails gem. In a moment we are going to change this configuration so that Webpack loads React so we do need to pay attention to the version of React we will install to ensure it matches with a version we know React Rails supports.
+A note on React versions: Reactrb includes the [React Rails](https://github.com/reactjs/react-rails) gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so pay particular attention to the version of React you have (via the React Rails gem) and the version we are about to install via NPM. We will need to ensure these versions are the same. At the time writing, the React version being installed is 15.0.2 so we install the same version via NPN. See [React Rails - React  versions](https://github.com/reactjs/react-rails/blob/master/VERSIONS.md) for a list of React versions supported by different versions of the React Rails gem. In a moment we are going to change this configuration so that Webpack loads React so we do need to pay attention to the version of React we will install to ensure it matches with a version we know React Rails supports.
 
 ### Step 3: Webpack for managing front-end assets
 
