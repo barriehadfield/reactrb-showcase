@@ -105,7 +105,7 @@ And if all has gone well, you should be rewarded with `Home::Show` in your brows
 
 	React.version
 
-A note on React versions: Reactrb includes the [React Rails](https://github.com/reactjs/react-rails) gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so pay particular attention to the version of React you have (via the React Rails gem) and the version we are about to install via NPM. We will need to ensure these versions are the same. At the time writing, the React version being installed is 15.0.2 so we install the same version via NPN. To change this, see [React Rails versions](https://github.com/reactjs/react-rails/blob/master/VERSIONS.md) which will then let you specify which version of React to include via the React Rails gem.
+A note on React versions: Reactrb includes the [React Rails](https://github.com/reactjs/react-rails) gem which includes a copy of the React source. Multiple copies of React being included cause untold problems so pay particular attention to the version of React you have (via the React Rails gem) and the version we are about to install via NPM. We will need to ensure these versions are the same. At the time writing, the React version being installed is 15.0.2 so we install the same version via NPN. See [React Rails - React  versions](https://github.com/reactjs/react-rails/blob/master/VERSIONS.md) for a lost of React versions supported by different versions of the React Rails gem. In a moment we are going to change this configuration so that Webpack loads React so we do need to pay attention to the version of React we will install to ensure it matches with a version we know React Rails supports.
 
 ### Step 3: Webpack for managing front-end assets
 
@@ -145,10 +145,10 @@ __Three Golden Rules__ when working with Webpack, Rails, React and Reactrb:
 We are now expecting two sets of technologies (Rails with Sprockets) and (NPM with Webpack) to play nicely together and `require` the correct front-end assets at the correct time. In addition to that, `Webpack-dev-server` is running in the background eagerly re-compiling our Webpack assets whenever it sees a change. Believe it or not, this does all work well __provided__ you follow these three golden rules:
 
 + Webpack assets must be included and load __before__ the Rails ones (as per the change we have made above)
-+ React pre-rendering will not work while you are using `Webpack-dev-server` as the Webpack assets are delivered directly into the browser. To see pre-rendering working you will need to compile your Webpack assets manually with `rake webpack:compile` and then switch off the dev server with by adding this line to `application.rb`: `::Rails.configuration.webpack.dev_server.enabled = false`
-+ Ensure that your components and libraries are installed either by Webpack (via NPM) or Rails (via a GEM) and never by both. If you start getting error messages saying that you are including two copies of React this will be the most likely cause.
++ React pre-rendering will not work while you are using `Webpack-dev-server` as the Webpack assets are delivered directly into the browser. To see pre-rendering working you will need to compile your Webpack assets manually with `rake webpack:compile` and then switch off the dev server by adding this line to `application.rb`: `::Rails.configuration.webpack.dev_server.enabled = false`
++ Ensure that your components and libraries are installed either by Webpack (via NPM) or bt Rails (via a GEM) and never by both. If you start getting error messages saying that you are including two copies of React this will be the most likely cause.
 
-Assuming all went well you can now start your rails server agin using foreman
+Assuming all went well you can now start your rails server agin using foreman (which starts webpack_dev_server and rails at the same time)
 
 	foreman start
 
@@ -156,9 +156,7 @@ At this point you should have a working server with Webpack hot-loading any comp
 
 ### Step 4: Installing React using NPM and Webpack
 
-One consideration that you need to pay close attention to is the version of React being included by the [React Rails](https://github.com/reactjs/react-rails) gem and the version being included by Webpack via NPM. I would suggest you use the React version supplied by the gem and set the NPM version accordingly. This will create a happy medium where you will know that React Rails is using a supported version of React and all your front-end assets versions are locked to the same React version by Webpack.    
-
-Installing React is very simple via NPM (note the @version which matches the version of React you have installed via the React Rails gem)
+Installing React is very simple via NPM (note the @version which matches the version of React we have established is compatible with the React Rails gem above).
 
 	npm install react@15.0.2 react-dom@15.0.2 --save
 
@@ -177,7 +175,7 @@ In `views/components.rb` make sure React is __not__ required
 	# require 'react'
 	require 'reactrb'
 
-And check your `assets/javascripts/application.js` to ensure that React has not been required there. If it has then remove it. 
+And check your `assets/javascripts/application.js` to ensure that React has not been required there. If it has then remove it.
 
 If you refresh your browser and check the React version should see the latest version ("15.1.0" at time of writing). If you are seeing that version number and no React warnings then all has worked properly and we are ready to start writing some Reactrb components.
 
