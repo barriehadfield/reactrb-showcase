@@ -332,6 +332,8 @@ We add React Bootstrap components simply by `Bs.Name` where `Name` is the compon
 
 Notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
 
+Finally a point on Ruby syntax. Reactrb employs extensive use of Ruby blocks as you can see in the syntax above. You have a choice when enclosing your blocks with `{ }` or `do end`. Ruby coding guidelines suggest that you should use `{ }` for one line blocks and `do end` for anything longer. When working with Reactrb, I prefer using `{ }` for html elements and `do end` for any programming logic or looping. I find `div { }` more readable and natural than `div do end`. If you disagree then feel free to use whatever works best for you.
+
 TODO:
 
 + Reactrb Router
