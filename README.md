@@ -432,12 +432,6 @@ We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` 
 
 Notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
 
-Before we move off ReactBootstrap, lets do something a little more interesting. How about a Bootstrap Modal that will let us play with React state and passing lambda functions between Ruby and JavaScript?
-
-As a first step I have set the Rails root to point to our page with the Navbar component which we will now start to build out.
-
-...
-
 TODO:
 
 + Reactrb Router
