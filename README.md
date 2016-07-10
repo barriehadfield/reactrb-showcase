@@ -453,6 +453,7 @@ module Components
             end
           end
         end
+				ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
       end
     end
   end
