@@ -4,7 +4,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 
 + [Introduction](#introduction)
 + [Setup](#setup)
-+ [Working with Native React components](##working-with-native-react-components)
++ [Working with native React components](#working-with-native-react-components)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
 + Reactrb Router
 + Opal IRB
@@ -273,7 +273,7 @@ Reactive record prerendered data being loaded: [Object]
 
 Congratulations you are setup and ready to begin adding javascript packages to your application.
 
-## Working with Native React components
+## Working with native React components
 
 Its time to reap some of the rewards from all the hard work above. We have everything setup so we can easily add front end components and work with them in Reactrb. Lets jump in and add a native React component that plays a video.
 
@@ -459,7 +459,7 @@ module Components
   end
 end
 ```
- 
+
 A few things to notice in the code above:
 
 We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` is the component you want to render. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
