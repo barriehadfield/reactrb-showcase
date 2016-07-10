@@ -279,7 +279,7 @@ Its time to reap some of the rewards from all the hard work above. We have every
 
 [We are going to use Pete Cook's React rplayr](https://github.com/CookPete/rplayr)
 
-First lets install the component via NPM:
+First let's install the component via NPM:
 ```text
 npm install react-player --save
 ```
@@ -289,17 +289,17 @@ Next we need to `require` it in `webpack/client_and_server.js`
 ReactPlayer = require('react-player')
 ```
 
-Next run `webpack` so it can be bundled
+Next run webpack so it can be bundled
 ```text
 webpack
 ```
 
-And then finally lets add it to our Show component:
+And then finally let's add it to our Show component:
 ```ruby
 def render
 	div do
-	 ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
- end
+		ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+	end
 end
 ```
 
