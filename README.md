@@ -296,7 +296,11 @@ webpack
 
 And then finally lets add it to our Show component:
 ```ruby
-ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+def render
+	div do
+	 ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+ end
+end
 ```
 
 Refresh your browser and you should have a video. How simple was that!
