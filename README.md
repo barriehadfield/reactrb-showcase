@@ -144,7 +144,7 @@ And a `show` method in the HomeController which will render the component using 
 ```ruby
 class HomeController < ApplicationController
   def show
-		render_component
+		render_component 
   end
 end
 ```
