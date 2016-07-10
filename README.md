@@ -83,7 +83,7 @@ At this stage Reactrb is installed but we don't have any components yet. Lets cr
 
 This will add a new Component at app/views/components/home/show.rb
 
-```
+```ruby
 module Components
   module Home
     class Show < React::Component::Base
@@ -141,11 +141,13 @@ And add a route to your `routes.rb`
 
 And a `show` method in the HomeController which will render the component using the `render_component` helper.
 
-	class HomeController < ApplicationController
-	  def show
-			render_component
-	  end
-	end
+```ruby
+class HomeController < ApplicationController
+  def show
+		render_component
+  end
+end
+```
 
 Fire up the server with `bundle exec rails s`, refresh your browser and if all has gone well, you should be rewarded with `Home::Show` in your browser.
 
