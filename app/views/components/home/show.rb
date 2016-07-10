@@ -33,7 +33,11 @@ module Components
 
       def render
         div do
-          "Home::Show"
+          ReactBootstrap::Button(bsStyle: 'success', bsSize: "small") do
+            'Success'
+          end.on(:click) do
+            alert('you clicked me!')
+          end
         end
       end
     end

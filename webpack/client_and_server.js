@@ -3,4 +3,5 @@
 // most well behaved packages can be required here
 ReactDOM = require('react-dom')
 React = require('react')
+ReactBootstrap = require('react-bootstrap')
 console.log('client_only.js loaded')

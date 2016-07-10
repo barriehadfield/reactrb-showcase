@@ -1,13 +1,17 @@
 {
-    "name": "reactrb-showcase",
-    "version": "0.0.1",
-    "dependencies": {
-        "bootstrap": "^3.3.6",
-        "react": "^0.14.2",
-        "react-dom": "^0.14.2",
-        "react-bootstrap": "^0.29.5",
-        "webpack": "^1.13.1"
-    },
-        "devDependencies": {
-    }
+  "name": "reactrb-showcase",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "react": "^0.14.2",
+    "react-bootstrap": "^0.29.5",
+    "react-dom": "^0.14.2",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.9.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  }
 }

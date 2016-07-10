@@ -392,7 +392,7 @@ And install the bootstrap package
 npm install bootstrap --save
 ```
 
-Now run `webpack` to update our bundles, and restart your server.  Now our button is properly styled.
+Now run `webpack` to update our bundles, and restart your server.  Now our button is properly styled you should be rewarded with a nice Bootstrap styled green Success Button.
 
 Now that everything is loaded, lets update our component to use a few more of the Bootstrap components.  Update our Show component so that it looks like this:
 
