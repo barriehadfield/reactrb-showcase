@@ -275,7 +275,7 @@ Congratulations you are setup and ready to begin adding javascript packages to y
 
 ## Working with native React components
 
-Its time to reap some of the rewards from all the hard work above. We have everything setup so we can easily add front end components and work with them in Reactrb. Lets jump in and add a native React component that plays a video.
+It is time to reap some of the rewards from all the hard work above. We have everything setup so we can easily add front end components and work with them in Reactrb. Lets jump in and add a native React component that plays a video.
 
 [We are going to use Pete Cook's React rplayr](https://github.com/CookPete/rplayr)
 
@@ -453,6 +453,7 @@ module Components
             end
           end
         end
+
 				ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
       end
     end
