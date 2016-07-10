@@ -1,14 +1,13 @@
 {
-  "name": "webpack-rails-example",
-  "version": "0.0.1",
-  "license": "MIT",
-  "dependencies": {
-    "bootstrap": "^3.3.6",
-    "react": "^15.0.2",
-    "react-bootstrap": "^0.29.4",
-    "react-dom": "^15.0.2",
-    "stats-webpack-plugin": "^0.2.1",
-    "webpack": "^1.9.11",
-    "webpack-dev-server": "^1.9.0"
-  }
+    "name": "reactrb-showcase",
+    "version": "0.0.1",
+    "dependencies": {
+        "bootstrap": "^3.3.6",
+        "react": "^0.14.2",
+        "react-dom": "^0.14.2",
+        "react-bootstrap": "^0.29.5",
+        "webpack": "^1.13.1"
+    },
+        "devDependencies": {
+    }
 }

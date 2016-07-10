@@ -27,11 +27,10 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 
 Ruby libraries are distributed as gems, and are managed in your Rails app using the Gemfile and bundler.
 
-In the Javascript world things are still evolving but I have found that the easiest way to manage Javascript libraries is using NPM (Node Package Manager) and Webpack. Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work.
+In the Javascript world things are still evolving but I have found that the easiest way to manage Javascript libraries is using NPM (Node Package Manager) and Webpack.  Pretty much every front end library is packaged with NPM these days so it is easy to get help and most things just work.
 
 Happily NPM, Webpack, Rails, and Reactrb can all play together very nicely.
 
-This tutorial requires that Ruby, Rails, and NPM are installed. Please see their websites for installation instructions.
 + [NPM](https://www.npmjs.com/)
 + [Webpack](https://www.npmjs.com/package/webpack)
 
@@ -178,7 +177,7 @@ First add a package.json file to your root directory (same place as your Gemfile
 			"react": "^0.14.2",      
 			"react-dom": "^0.14.2",
 			"react-bootstrap": "^0.29.5",
-			"webpack": "^1.13.1",
+			"webpack": "^1.13.1"
 		},
 			"devDependencies": {
 		}
@@ -202,10 +201,6 @@ module.exports = {
     entry: {
         client_only:  "./webpack/client_only.js",
         client_and_server: "./webpack/client_and_server.js"
-    },
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
     },
     output: {
         path: path.join(__dirname, 'app', 'assets', 'javascripts', 'webpack'),
