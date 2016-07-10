@@ -459,7 +459,7 @@ module Components
   end
 end
 ```
-
+ 
 A few things to notice in the code above:
 
 We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` is the component you want to render. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
