@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def show
+    render_component
   end
 
   def navbar

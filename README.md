@@ -137,15 +137,15 @@ Next let's get this simple component rendering on a page. For that we will need 
 
 And add a route to your `routes.rb`
 
-	root => 'home#show'
+	root 'home#show'
 
 And a `show` method in the HomeController which will render the component using the `render_component` helper.
 
 ```ruby
 class HomeController < ApplicationController
-  def show
-		render_component 
-  end
+	def show
+		render_component
+	end
 end
 ```
 

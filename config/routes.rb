@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  mount ReactiveRecord::Engine => '/rr'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'home' => 'home#show'
+  root 'home#show'
   get 'navbar' => 'home#navbar'
 
   # You can have the root of your site routed with "root"
-  root 'home#navbar'
+  # root 'home#navbar'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
