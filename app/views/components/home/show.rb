@@ -36,7 +36,8 @@ module Components
       end
 
        def render
-         ReactBootstrap::Navbar(bsStyle: :inverse) do
+         div do
+           ReactBootstrap::Navbar(bsStyle: :inverse) do
            ReactBootstrap::Nav() do
              ReactBootstrap::NavbarBrand() do
                a(href: '#') { 'Reactrb Showcase' }
@@ -49,7 +50,9 @@ module Components
                end
              end
            end
-         end
+          end
+          ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+        end
        end
 
       # def render

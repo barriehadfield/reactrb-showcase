@@ -4,6 +4,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 
 + [Introduction](#introduction)
 + [Setup](#setup)
++ [Working with Native React components](##working-with-native-react-components)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
 + Reactrb Router
 + Opal IRB
@@ -252,6 +253,13 @@ require 'webpack/client_and_server.js'
 
 In otherwords instead of pulling in react from the react-rails gem, we are going to pull in react *and* any other javascript packages we want from our webpack bundle.
 
+Reactrb can automatically access our components loaded by Webpack, but we have to opt in to this behavior.  Edit `app/views/components.rb` and add
+```ruby
+require 'reactrb/auto-import'
+```
+
+immediately after `require 'reactrb'` (which is right near the top of the file.)  Auto-import will now search the javascript name space, and import into ruby any components that are referenced by your Reactrb components.
+
 Now run `bundle exec rails s` and refresh the browser.  Look at the console and you should see something like this:
 
 ```text
@@ -264,6 +272,34 @@ Reactive record prerendered data being loaded: [Object]
 ```
 
 Congratulations you are setup and ready to begin adding javascript packages to your application.
+
+## Working with Native React components
+
+Its time to reap some of the rewards from all the hard work above. We have everything setup so we can easily add front end components and work with them in Reactrb. Lets jump in and add a native React component that plays a video.
+
+[We are going to use Pete Cook's React rplayr](https://github.com/CookPete/rplayr)
+
+First lets install the component via NPM:
+```text
+npm install react-player --save
+```
+
+Next we need to `require` it in `webpack/client_and_server.js`
+```javascript
+ReactPlayer = require('react-player')
+```
+
+Next run `webpack` so it can be bundled
+```text
+webpack
+```
+
+And then finally lets add it to our Show component:
+```ruby
+ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+```
+
+Refresh your browser and you should have a video. How simple was that!
 
 ## Working with React Bootstrap
 
@@ -323,13 +359,6 @@ If you refresh your browser now and open the JavaScript console we will be able 
 In the JavaScript console type: ```ReactBootstrap```
 
 and you will see the ReactBootstrap object with all its components like Accordion, Alert, Badge, Breadcrumb, etc. This is great news, React Bootstrap is installed and ready to use. Accessing the JavaScript object in this way is a really great way to see what you have to work with. Sometimes the documentation of a component is not as accurate as actually seeing what you have in the component itself.
-
-Reactrb can automatically access our components loaded by Webpack, but we have to opt in to this behavior.  Edit `app/views/components.rb` and add
-```ruby
-require 'reactrb/auto-import'
-```
-
-immediately after `require 'reactrb'` (which is right near the top of the file.)  Auto-import will now search the javascript name space, and import into ruby any components that are referenced by your Reactrb components.
 
 To make sure everything is working lets add a *Button* to our our Show component like this:
 
