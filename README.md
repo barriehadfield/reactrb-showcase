@@ -429,7 +429,7 @@ Now run `webpack` to update our bundles, and restart your server.  Now our butto
 
 Now that everything is loaded, lets update our component to use a few more of the Bootstrap components.  Update our Show component so that it looks like this:
 
-```
+```ruby
 module Components
   module Home
     class Show < React::Component::Base
@@ -453,7 +453,6 @@ module Components
             end
           end
         end
-
 				ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
       end
     end
