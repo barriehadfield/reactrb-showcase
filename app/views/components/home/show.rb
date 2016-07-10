@@ -31,15 +31,36 @@ module Components
         # cleanup any thing (i.e. timers) before component is destroyed
       end
 
-      def render
-        div do
-          ReactBootstrap::Button(bsStyle: 'success', bsSize: "small") do
-            'Success'
-          end.on(:click) do
-            alert('you clicked me!')
-          end
-        end
+      def say_hello(i)
+        alert "Hello from number #{i}"
       end
+
+       def render
+         ReactBootstrap::Navbar(bsStyle: :inverse) do
+           ReactBootstrap::Nav() do
+             ReactBootstrap::NavbarBrand() do
+               a(href: '#') { 'Reactrb Showcase' }
+             end
+             ReactBootstrap::NavDropdown(eventKey: 1, title: 'Things', id: :drop_down) do
+               (1..5).each do |n|
+                 ReactBootstrap::MenuItem(href: '#', key: n, eventKey: "1.#{n}") do
+                   "Number #{n}"
+                 end.on(:click) { say_hello(n) }
+               end
+             end
+           end
+         end
+       end
+
+      # def render
+      #   div do
+      #     ReactBootstrap::Button(bsStyle: 'success', bsSize: "small") do
+      #       'Success'
+      #     end.on(:click) do
+      #       alert('you clicked me!')
+      #     end
+      #   end
+      # end
     end
   end
 end
