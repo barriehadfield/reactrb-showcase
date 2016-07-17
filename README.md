@@ -6,6 +6,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + [Setup](#setup)
 + [Working with native React components](#working-with-native-react-components)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
++ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb)
 + Reactrb Router
 + Opal IRB
 + Reactrb Hotloader
@@ -206,7 +207,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'app', 'assets', 'javascripts', 'webpack'),
         filename: "[name].js",
-        publicPath: "/js/"
+        publicPath: "/webpack/"
     },
     module: {
         loaders: [
@@ -465,6 +466,34 @@ A few things to notice in the code above:
 We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` is the component you want to render. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
 
 Notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
+
+## Reactrb Hot-Loader and Opal IRB
+
+Before we go any further, lets install two fantastic tools written by Forrest Chang:
+
++ [Opal Hot Loader](https://github.com/fkchang/opal-hot-reloader)
++ [Opal Console](https://github.com/fkchang/opal-console)
+
+Opal Hot Loader is for pure programmer joy (not having to reload the page to compile your source) and the Opal console is incredibly useful to test how Ruby code compiles to JavaScript.
+
+We are also going to add the Foreman gem to run our Rails server and the Hot Loader service for us.
+
+At the time of writing, Opal Hot Loader has not been published as a gem, so you will need to add the following line to your `gemfile`
+
+```ruby
+gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
+gem 'foreman'
+```
+
+`bundle install`
+
+And then modify your `components.rb`, adding `require 'opal_hot_reloader'` inside the if statement (which means it will only be included inside the browser and not as a part of the pre-rendering process) and then the following line:
+
+```ruby
+OpalHotReloader.listen
+```
+
+To start your Rails
 
 TODO:
 

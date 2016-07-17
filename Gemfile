@@ -29,7 +29,8 @@ gem 'reactrb'
 gem 'opal-rails', '>= 0.8.1'
 gem 'therubyracer', platforms: :ruby
 
-# foreman to start rails and webpack
+gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
+# foreman to start rails and hot-loader rocesses
 gem 'foreman'
 
 group :development, :test do

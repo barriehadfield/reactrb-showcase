@@ -4,6 +4,8 @@ require 'webpack/client_and_server.js'
 require 'reactrb'
 require 'reactrb/auto-import'
 if React::IsomorphicHelpers.on_opal_client?
+  require 'opal_hot_reloader'
+  OpalHotReloader.listen(25222, true)
   require 'opal-jquery'
   require 'browser'
   require 'browser/interval'
@@ -14,4 +16,5 @@ require 'reactrb-router'
 require 'react_router'
 require 'reactive-record'
 require 'models'
+
 require_tree './components'

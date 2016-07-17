@@ -1,5 +1,6 @@
 module Components
   module Home
+
     class Show < React::Component::Base
 
       # param :my_param
@@ -51,6 +52,7 @@ module Components
              end
            end
           end
+          h1 {"hello change"}
           ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
         end
        end
