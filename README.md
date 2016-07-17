@@ -225,7 +225,7 @@ and create a folder called `webpack` and add the following two files:
 // webpack/client_only.js
 // any packages that depend specifically on the DOM go here
 // for example the webpack css loader generates code that will break prerendering
-console.log('client_and_server.js loaded');
+console.log('client_only.js loaded');
 ```
 
 ```javascript
@@ -234,7 +234,7 @@ console.log('client_and_server.js loaded');
 // most well behaved packages can be required here
 ReactDOM = require('react-dom')
 React = require('react')
-console.log('client_only.js loaded')
+console.log('client_and_server.js loaded')
 ```
 
 Now run `webpack` from the command line.  This will grab all necessary dependencies and package them up into the `client_and_server.js` and `client_only.js` bundles.  If you look in the `app/assets/javascripts/webpack` directory you should see the two files there.
