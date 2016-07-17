@@ -487,13 +487,25 @@ gem 'foreman'
 
 `bundle install`
 
-And then modify your `components.rb`, adding `require 'opal_hot_reloader'` inside the if statement (which means it will only be included inside the browser and not as a part of the pre-rendering process) and then the following line:
+And then modify your `components.rb`, adding the following lines inside the if statement (so they only run on the client and not as part of the pre-rendering process):
 
 ```ruby
-OpalHotReloader.listen
+require 'opal_hot_reloader'
+OpalHotReloader.listen(25222, true)
 ```
 
-To start your Rails
+Then modify your `procfile` so that the Hot Loader service will start whenever you start your server:
+
+```text
+rails: bundle exec rails server
+hotloader: opal-hot-reloader -p 25222 -d app/views/components
+```
+
+To start both servers:
+
+`foreman start`
+
+
 
 TODO:
 
