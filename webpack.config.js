@@ -13,7 +13,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'app', 'assets', 'javascripts', 'webpack'),
         filename: "[name].js",
-        publicPath: "/js/"
+        publicPath: "/webpack/"
     },
     module: {
       loaders: [
