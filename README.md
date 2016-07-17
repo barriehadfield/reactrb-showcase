@@ -469,7 +469,7 @@ Notice how I have added an `.on(:click)` event handler to the `MenuItem` compone
 
 ## Reactrb Hot-Loader and Opal IRB
 
-Before we go any further, lets install two fantastic tools written by Forrest Chang:
+Before we go any further, let's install too fantastic tools written by Forrest Chang:
 
 + [Opal Hot Loader](https://github.com/fkchang/opal-hot-reloader)
 + [Opal Console](https://github.com/fkchang/opal-console)
@@ -478,7 +478,7 @@ Opal Hot Loader is for pure programmer joy (not having to reload the page to com
 
 We are also going to add the Foreman gem to run our Rails server and the Hot Loader service for us.
 
-At the time of writing, Opal Hot Loader has not been published as a gem, so you will need to add the following line to your `gemfile`
+Add the following lines to your `gemfile` and run `bundle`:
 
 ```ruby
 gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
@@ -487,7 +487,7 @@ gem 'foreman'
 
 `bundle install`
 
-And then modify your `components.rb`, adding the following lines inside the if statement (so they only run on the client and not as part of the pre-rendering process):
+Modify your `components.rb`, adding the following lines inside the if statement so they only run on the client and not as part of the server pre-rendering process:
 
 ```ruby
 require 'opal_hot_reloader'
@@ -505,7 +505,7 @@ To start both servers:
 
 `foreman start`
 
-
+Refresh your browser for the last time and try modifying your `show.rb` component and you should see your changes appearing magically in your browser as you save. Pure joy.  
 
 TODO:
 
