@@ -97,7 +97,8 @@ module Components
       # collect_all_other_params_as :attributes  #collects all other params into a hash
 
       # The following are the most common lifecycle call backs,
-      # the following are the most common lifecycle call backs# delete any that you are not using.
+      # the following are the most common lifecycle call backs
+			# delete any that you are not using.
       # call backs may also reference an instance method i.e. before_mount :my_method
 
       before_mount do
@@ -402,10 +403,18 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
+            { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+							loader: 'url?limit=10000&mimetype=application/font-woff'
+						},
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+							loader: 'url?limit=10000&mimetype=application/octet-stream'
+						},
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+							loader: 'file'
+						},
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+							loader: 'url?limit=10000&mimetype=image/svg+xml'
+						}
         ]
     },
 ...
@@ -445,16 +454,24 @@ module Components
             ReactBootstrap::NavbarBrand() do
               a(href: '#') { 'Reactrb Showcase' }
             end
-            ReactBootstrap::NavDropdown(eventKey: 1, title: 'Things', id: :drop_down) do
-              (1..5).each do |n|
-                ReactBootstrap::MenuItem(href: '#', key: n, eventKey: "1.#{n}") do
-                  "Number #{n}"
-                end.on(:click) { say_hello(n) }
-              end
+            ReactBootstrap::NavDropdown(
+							eventKey: 1,
+							title: 'Things',
+							id: :drop_down
+						) do
+            (1..5).each do |n|
+              ReactBootstrap::MenuItem(href: '#',
+								key: n,
+								eventKey: "1.#{n}"
+							) do
+                "Number #{n}"
+              end.on(:click) { say_hello(n) }
             end
+          	end
           end
         end
-				ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+				ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk',
+					playing: true)
       end
     end
   end

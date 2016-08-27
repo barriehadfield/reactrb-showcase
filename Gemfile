@@ -26,10 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # react-rb gems
 gem 'reactrb'
 # gem 'react-rails', '~> 1.7.1'
-gem 'opal-rails', '>= 0.8.1'
+gem 'opal-rails', '0.8.1'
 gem 'therubyracer', platforms: :ruby
+gem 'synchromesh', git: "https://github.com/reactrb/synchromesh.git"
 
-gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
+# gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
 # foreman to start rails and hot-loader rocesses
 gem 'foreman'
 

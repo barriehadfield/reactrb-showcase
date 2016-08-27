@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def show
-    render_component
+    # render_component
   end
 end
