@@ -2,7 +2,9 @@
 
 This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React Bootstrap, Reactive Record, Synchromesh, Rearcrb Router and other associated technologies.  This showcase is intended to be a companion project to the excellent Reactrb tutorials already written which you can find in [Further Reading](#further-reading) below.
 
-The application we will build will mix native React and Reactrb components, be styled by Bootstrap (using ReactBootstrap), display a video and use Reactive Record and Synchromesh to handle data for a Post and Comments feed.
+This Showcase application will mix native React and Reactrb components, be styled by Bootstrap CSS (using ReactBootstrap), display a video (using a native React component) and use Reactrb Reactive Record and Synchromesh to handle data for a Post and Comments feed.
+
+The Showcase app will look like this:
 
 ![Screen](public/screen.png)
 
