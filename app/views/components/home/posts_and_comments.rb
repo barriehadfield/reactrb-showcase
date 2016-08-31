@@ -2,9 +2,13 @@ module Components
   module Home
     class PostsAndComments < React::Component::Base
 
-      define_state :posts
+      define_state :posts, []
 
       before_mount do
+        state.posts! []
+      end
+
+      after_mount do
         state.posts! Post.all
       end
 
