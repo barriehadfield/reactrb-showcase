@@ -4,7 +4,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 
 This Showcase application will mix native React and Reactrb components, be styled by Bootstrap CSS (using ReactBootstrap), display a video (using a native React component) and use Reactrb Reactive Record and Synchromesh to handle data for a Post and Comments feed.
 
-The Showcase app will look like this:
+The Showcase application will look like this:
 
 ![Screen](public/screen.png)
 
@@ -579,6 +579,11 @@ models/public
 
 Then move `post.rb` and `comment.rb` to `models/public`
 
+```text
+mv app/models/post.rb app/models/public
+mv app/models/comment.rb app/models/public
+```
+
 Next create `_react_public_models.rb` in your models folder:
 
 ```ruby
@@ -611,6 +616,24 @@ end
 ```
 
 ### Accessing your models in Reactrb components
+
+To get started, lets create a new component which will display a list of Posts and Comments under the video:
+
+```ruby
+# views/components/show.rb
+...
+div.container do
+  ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+  br # line break
+  PostsAndComments()
+end
+...
+```
+
+Note that to place a Reactrb component you either need to include ( ) or { }, so `PostsAndComments()` or `PostsAndComments { }` would be valid but just `PostsAndComments` would not.
+
+Next lets create the `PostsAndComments` component:
+
 
 
 ================================

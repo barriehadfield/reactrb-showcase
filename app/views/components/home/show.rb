@@ -54,6 +54,8 @@ module Components
           end
           div.container do
             ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+            br
+            PostsAndComments()
           end
         end
        end
