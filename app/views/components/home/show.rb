@@ -52,8 +52,9 @@ module Components
              end
            end
           end
-          h1 {"hello change"}
-          ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+          div.container do
+            ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
+          end
         end
        end
 

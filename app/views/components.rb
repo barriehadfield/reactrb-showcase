@@ -12,9 +12,7 @@ if React::IsomorphicHelpers.on_opal_client?
   OpalHotReloader.listen(25222, true)
   # add any additional requires that can ONLY run on client here
 end
-require 'reactrb-router'
-require 'react_router'
 require 'reactive-record'
-require 'models'
+require '_react_public_models'
 
 require_tree './components'

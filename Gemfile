@@ -28,6 +28,7 @@ gem 'reactrb'
 # gem 'react-rails', '~> 1.7.1'
 gem 'opal-rails', '>= 0.8.1'
 gem 'therubyracer', platforms: :ruby
+gem 'reactive-record'
 
 gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
 # foreman to start rails and hot-loader rocesses
@@ -46,8 +47,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-gem 'react-rails', '>= 1.3.0'
-gem 'react-router-rails', '~> 0.13.3'
-gem 'reactrb-router'
-gem 'reactive-record', '>= 0.8.0'

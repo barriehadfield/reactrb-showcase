@@ -6,11 +6,10 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + [Setup](#setup)
 + [Working with native React components](#working-with-native-react-components)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
-+ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb)
-+ Reactrb Router
-+ Opal IRB
-+ Reactrb Hotloader
 + Reactrb Reactive Record
++ Reactrb Synchromesh
++ Reactrb Router
++ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb)
 + [Further reading](#further-reading)
 
 ## Introduction
@@ -97,7 +96,8 @@ module Components
       # collect_all_other_params_as :attributes  #collects all other params into a hash
 
       # The following are the most common lifecycle call backs,
-      # the following are the most common lifecycle call backs# delete any that you are not using.
+      # the following are the most common lifecycle call backs
+			# delete any that you are not using.
       # call backs may also reference an instance method i.e. before_mount :my_method
 
       before_mount do
@@ -201,18 +201,18 @@ var path = require("path");
 module.exports = {
     context: __dirname,
     entry: {
-        client_only:  "./webpack/client_only.js",
-        client_and_server: "./webpack/client_and_server.js"
+      client_only:  "./webpack/client_only.js",
+      client_and_server: "./webpack/client_and_server.js"
     },
     output: {
-        path: path.join(__dirname, 'app', 'assets', 'javascripts', 'webpack'),
-        filename: "[name].js",
-        publicPath: "/webpack/"
+      path: path.join(__dirname, 'app', 'assets',   'javascripts', 'webpack'),
+      filename: "[name].js",
+      publicPath: "/webpack/"
     },
     module: {
-        loaders: [
-          // add any loaders here
-        ]
+      loaders: [
+        // add any loaders here
+      ]
     },
     resolve: {
       root: path.join(__dirname, '..', 'webpack')
@@ -298,9 +298,11 @@ webpack
 And then finally let's add it to our Show component:
 ```ruby
 def render
-	div do
-		ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
-	end
+  div do
+    ReactPlayer(url:  'https://www.youtube.com/embed/FzCsDVfPQqk',
+      playing: true
+    )
+  end
 end
 ```
 
@@ -400,13 +402,23 @@ var path = require("path");
 module.exports = {
 ...
     module: {
-        loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
-        ]
+      loaders: [
+        { test: /\.css$/,
+          loader: "style-loader!css-loader"
+        },
+        { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url?limit=10000&mimetype=application/font-woff'
+        },
+        { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url?limit=10000&mimetype=application/octet-stream'
+        },
+        { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'file'
+        },
+        { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url?limit=10000&mimetype=image/svg+xml'
+        }
+      ]
     },
 ...
 };
@@ -428,7 +440,7 @@ npm install bootstrap --save
 
 Now run `webpack` to update our bundles, and restart your server.  Now our button is properly styled you should be rewarded with a nice Bootstrap styled green Success Button.
 
-Now that everything is loaded, lets update our component to use a few more of the Bootstrap components.  Update our Show component so that it looks like this:
+Now that everything is loaded, lets update our component to use a few more of the Bootstrap components.  Update your Show component so that it looks like this:
 
 ```ruby
 module Components
@@ -440,21 +452,34 @@ module Components
       end
 
       def render
-        ReactBootstrap::Navbar(bsStyle: :inverse) do
-          ReactBootstrap::Nav() do
-            ReactBootstrap::NavbarBrand() do
-              a(href: '#') { 'Reactrb Showcase' }
-            end
-            ReactBootstrap::NavDropdown(eventKey: 1, title: 'Things', id: :drop_down) do
-              (1..5).each do |n|
-                ReactBootstrap::MenuItem(href: '#', key: n, eventKey: "1.#{n}") do
-                  "Number #{n}"
-                end.on(:click) { say_hello(n) }
+        div do
+          ReactBootstrap::Navbar(bsStyle: :inverse) do
+            ReactBootstrap::Nav() do
+              ReactBootstrap::NavbarBrand() do
+                a(href: '#') { 'Reactrb Showcase' }
+              end
+              ReactBootstrap::NavDropdown(
+                eventKey: 1,
+                title: 'Things',
+                id: :drop_down
+              ) do
+                (1..5).each do |n|
+                  ReactBootstrap::MenuItem(href: '#',
+                    key: n,
+                    eventKey: "1.#{n}"
+                  ) do
+                    "Number #{n}"
+                  end.on(:click) { say_hello(n) }
+                end
               end
             end
           end
+          div.container do
+            ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk',
+              playing: true
+            )
+          end
         end
-				ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
       end
     end
   end
@@ -463,9 +488,132 @@ end
 
 A few things to notice in the code above:
 
-We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` is the component you want to render. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
+We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` is the JavaScriot component you want to render. All the components are documented in the React Bootstrap [documentation](https://react-bootstrap.github.io/components.html)
 
-Notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
+See with `div.container` we are mixing in CSS style which will compile into `<div class='container'>`
+
+Also notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
+
+So far we have a very basic application which is looking OK and showing a video. Time to do something a little more interesting. How about if we add Post and Comment functionality which will let us explore Reactive Record!
+
+## Using Reactrb Reactive Record
+
+[We will be using the Reactive Record gem](https://github.com/reactrb/reactive-record)
+
+Reactive Record compiles your Active Record models so they are accessible to the front-end and implements an API based on your models and their associations. Lazy loading just the data that is needed to render a component, it is fully integrated with Reactrb and paired with Synchromesh to push database changes to all connected clients. ReactiveRecord and Synchromesh give you Relay + GraphQL like functionality with a fraction of the effort and complexity (the original idea for Reactive Record is credited to [Volt](https://github.com/voltrb/volt) and not Relay).
+
+### Installing Reactive Record
+
+Installing Reactive Record is straight forward.
+
+First add this line to your application's Gemfile:
+
+```ruby
+gem 'reactive-record'
+```
+
+And then execute:
+
+```
+$ bundle install
+```
+
+Finally you need to add a line to your `routes.rb`:
+
+```ruby
+mount ReactiveRecord::Engine => '/rr'
+```
+
+### Creating your models
+
+We are going to need a few models to work with so let's go ahead and create those now.
+
+```text
+rails g model Post
+rails g model Comment post:references
+```
+
+And then before you run the migrations, lets flesh them out a little so they look like this:
+
+```ruby
+# db/migrate/..create_posts.rb
+class CreatePosts < ActiveRecord::Migration
+  def change
+    create_table :posts do |t|
+      t.string :body
+      t.timestamps null: false
+    end
+  end
+end
+
+# db/migrate/..create_comments.rb
+class CreateComments < ActiveRecord::Migration
+  def change
+    create_table :comments do |t|
+      t.references :post, index: true, foreign_key: true
+      t.string :body
+      t.timestamps null: false
+    end
+  end
+end
+```
+
+Now would be a good time to run the migrations:
+
+```text
+rake db:migrate
+```
+
+### Making your models accessible to Reactive Record
+
+Reactive Record needs to 'see' your models as a representation of them get compiled into JavaScript along with your Reactrb components so they are accessible in your client side code.
+
+The convention (though this is choice and you can change this if you prefer) is to create a `public` folder under `models` and then provide a linkage file which will `require_tree` your models when compiling `components.rb`.
+
+Create a new folder:
+
+```text
+models/public
+```
+
+Then create `_react_public_models.rb` in your models folder:
+
+```ruby
+# models/_react_public_models.rb
+require_tree './public'
+```
+
+And then add a line to your `views/components.rb` file:
+
+```ruby
+# views/components.rb
+...
+require '_react_public_models'
+```
+
+### Model Associations
+
+Reactive Record is particular about both sides of an association being specified. If you forget to do this you will see warnings to this affect.
+
+```ruby
+# models/public/post.rb
+class Post < ActiveRecord::Base
+  has_many :comments
+end
+
+# models/public/comment.rb
+class Comment < ActiveRecord::Base
+  belongs_to :post
+end
+```
+
+### Accessing your models in Reactrb components
+
+
+================================
+Todo:
++ Reactrb Synchromesh
++ Reactrb Router
 
 ## Reactrb Hot-Loader and Opal IRB
 
@@ -506,13 +654,6 @@ To start both servers:
 `foreman start`
 
 Refresh your browser for the last time and try modifying your `show.rb` component and you should see your changes appearing magically in your browser as you save. Pure joy.  
-
-TODO:
-
-+ Reactrb Router
-+ Opal IRB
-+ Reactrb Hotloader
-+ Reactrb Reactive Record
 
 ## Further reading
 
