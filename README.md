@@ -6,11 +6,10 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + [Setup](#setup)
 + [Working with native React components](#working-with-native-react-components)
 + [Working with React Bootstrap](#working-with-react-bootstrap)
-+ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb)
-+ Reactrb Router
-+ Opal IRB
-+ Reactrb Hotloader
 + Reactrb Reactive Record
++ Reactrb Synchromesh
++ Reactrb Router
++ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb)
 + [Further reading](#further-reading)
 
 ## Introduction
@@ -484,6 +483,36 @@ We add React Bootstrap components simply by `ReactBootstrap::Name` where `Name` 
 
 Notice how I have added an `.on(:click)` event handler to the `MenuItem` component while setting `href: '#'` as this will allow us to handle the event instead of navigating to a new page.
 
+## Using Reactrb Reactive Record
+
+[We will be using the Reactive Record gem](https://github.com/reactrb/reactive-record)
+
+Reactive Record extends your Active Record models to the front end, implementing an API based on your models and their associations. Lazy loading just the data that is needed to render a component, it is fully integrated with Reactrb and paired with Synchromesh to push database changes to all connected clients. ReactiveRecord and Synchromesh give you Relay + GraphQL like functionality with a fraction of the effort and complexity (the original idea for Reactive Record is credited to [Volt](https://github.com/voltrb/volt) and not Relay).
+
+Installing Reactive Record is straight forward. First add this line to your application's Gemfile:
+
+```ruby
+gem 'reactive-record'
+```
+
+And then execute:
+
+```
+$ bundle install
+```
+
+Finally you need to add a line to your `routes.rb`:
+
+```ruby
+mount ReactiveRecord::Engine => '/rr'
+```
+
+In the Showcase source code you woll see that we have created two models,
+
+Todo:
++ Reactrb Synchromesh
++ Reactrb Router
+
 ## Reactrb Hot-Loader and Opal IRB
 
 Before we go any further, let's install too fantastic tools written by Forrest Chang:
@@ -523,13 +552,6 @@ To start both servers:
 `foreman start`
 
 Refresh your browser for the last time and try modifying your `show.rb` component and you should see your changes appearing magically in your browser as you save. Pure joy.  
-
-TODO:
-
-+ Reactrb Router
-+ Opal IRB
-+ Reactrb Hotloader
-+ Reactrb Reactive Record
 
 ## Further reading
 
