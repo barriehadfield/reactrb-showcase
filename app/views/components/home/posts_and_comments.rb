@@ -2,22 +2,23 @@ module Components
   module Home
     class PostsAndComments < React::Component::Base
 
-      define_state :posts, []
+      # define_state :posts
+
+      # before_mount do
+      #   # this is needed as we are pre-rendering
+      #   # state.posts! []
+      # end
 
       before_mount do
-        state.posts! []
-      end
-
-      after_mount do
-        state.posts! Post.all
+        @posts = Post.all
       end
 
       def render
         div do
           new_post
           ul do
-            state.posts.each do |post|
-              # li { post.body }
+            @posts.each do |post|
+              li { post.body }
             end
           end
         end
@@ -33,13 +34,15 @@ module Components
         end
         ReactBootstrap::Button(bsStyle: :primary) do
           "Post"
-        end.on(:click) { create_new_post }
+        end.on(:click) { save_new_post }
       end
 
-      def create_new_post
-        # post = Post.new
-        # post.body = @new_post
-        # post.save
+      def save_new_post
+        post = Post.new(body: @new_post)
+        post.save do |result|
+          # note that save is a promise
+          alert "unable to save" unless result[:success]
+        end
       end
 
     end
