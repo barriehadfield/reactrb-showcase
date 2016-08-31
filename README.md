@@ -1,16 +1,22 @@
-# Reactrb Showcase - DRAFT
+# Reactrb Showcase
 
-This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React Bootstrap and other associated technologies.  This showcase is intended to be a companion project to the excellent Reactrb tutorials already written which you can find in [Further Reading](#further-reading) below.
+This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React Bootstrap, Reactive Record, Synchromesh, Rearcrb Router and other associated technologies.  This showcase is intended to be a companion project to the excellent Reactrb tutorials already written which you can find in [Further Reading](#further-reading) below.
 
-+ [Introduction](#introduction)
-+ [Setup](#setup)
-+ [Working with native React components](#working-with-native-react-components)
-+ [Working with React Bootstrap](#working-with-react-bootstrap)
-+ Reactrb Reactive Record
-+ Reactrb Synchromesh
-+ Reactrb Router
-+ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb)
-+ [Further reading](#further-reading)
+The application we will build will mix native React and Reactrb components, be styled by Bootstrap (using ReactBootstrap), display a video and use Reactive Record and Synchromesh to handle data for a Post and Comments feed.
+
+![Screen](public/screen.png)
+
+### Technologies highlighted in this Showcase application
+
++ For the backend we are using Rails 4.2.6 with Ruby 2.3.1
++ NPM and Webpack to manage front end assets
++ [React Rails](https://github.com/reactjs/react-rails) to use React with Rails
++ [Reactrb](https://github.com/reactrb/reactrb) to write reactive UI components with Ruby's elegance
++ [React Bootstrap](https://react-bootstrap.github.io/) to show how to use native React components in Reactrb
++ [Reactive Record](https://github.com/reactrb/reactive-record) to move data between Rails models and the front end
++ [Synchromesh](https://github.com/reactrb/synchromesh) to magically push changed data between all connected clients
++ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb) for programmer joy and hot-loading with developing
+
 
 ## Introduction
 
@@ -23,6 +29,7 @@ This is a simple Rails application showcasing Reactrb, Opal, NPM, Webpack, React
 + [Gitter.im](https://gitter.im/reactrb/chat) for general questions, discussion, and interactive help.
 + [Stack Overflow](http://stackoverflow.com/questions/tagged/reactrb) tag `reactrb` for specific problems.
 + [Github Issues](https://github.com/reactrb/reactrb/issues) for bugs, feature enhancements, etc.
++ [Further reading](#further-reading) at the end of this tutorial
 
 ### Using NPM and Webpack alongside Rails
 
@@ -36,14 +43,6 @@ Happily NPM, Webpack, Rails, and Reactrb can all play together very nicely.
 + [Webpack](https://www.npmjs.com/package/webpack)
 
 This tutorial requires that Ruby, Rails, NPM and Webpack are installed. Please see their websites for installation instructions.
-
-### Technologies highlighted in this showcase app
-
-+ For the backend we are using Rails 4.2.6 with Ruby 2.3.1
-+ NPM and Webpack to manage front end assets
-+ [React Rails](https://github.com/reactjs/react-rails) to use React with Rails
-+ [Reactrb](https://github.com/reactrb/reactrb) to write reactive UI components with Ruby's elegance
-+ [React Bootstrap](https://react-bootstrap.github.io/) to show how to use native React components in Reactrb
 
 ## Setup
 
@@ -524,7 +523,7 @@ Finally you need to add a line to your `routes.rb`:
 mount ReactiveRecord::Engine => '/rr'
 ```
 
-### Creating your models
+### Creating the models
 
 We are going to need a few models to work with so let's go ahead and create those now.
 
@@ -576,14 +575,16 @@ Create a new folder:
 models/public
 ```
 
-Then create `_react_public_models.rb` in your models folder:
+Then move `post.rb` and `comment.rb` to `models/public`
+
+Next create `_react_public_models.rb` in your models folder:
 
 ```ruby
 # models/_react_public_models.rb
 require_tree './public'
 ```
 
-And then add a line to your `views/components.rb` file:
+Finally add a line to your `views/components.rb` file:
 
 ```ruby
 # views/components.rb
