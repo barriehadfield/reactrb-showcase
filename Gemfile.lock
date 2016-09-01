@@ -6,6 +6,14 @@ GIT
       listen (~> 3.0)
       websocket
 
+GIT
+  remote: https://github.com/reactrb/synchromesh.git
+  revision: 4f693cc3aae2b9177075d48c3dddcb605d5eb77c
+  specs:
+    synchromesh (0.4.0)
+      activerecord (>= 0.3.0)
+      reactive-record (>= 0.7.43)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -169,7 +177,7 @@ GEM
       react-rails
       reactrb
       therubyracer
-    reactrb (0.8.7)
+    reactrb (0.8.8)
       opal (>= 0.8.0)
       opal-activesupport (>= 0.2.0)
       opal-browser (= 0.2.0)
@@ -230,12 +238,13 @@ DEPENDENCIES
   opal_hot_reloader!
   rails (= 4.2.6)
   reactive-record
-  reactrb
+  reactrb (= 0.8.8)
   reactrb-rails-generator
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   sqlite3
+  synchromesh!
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)

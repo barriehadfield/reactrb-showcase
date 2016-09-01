@@ -580,8 +580,8 @@ models/public
 Then move `post.rb` and `comment.rb` to `models/public`
 
 ```text
-mv app/models/post.rb app/models/public
-mv app/models/comment.rb app/models/public
+$ mv app/models/post.rb app/models/public
+$ mv app/models/comment.rb app/models/public
 ```
 
 Next create `_react_public_models.rb` in your models folder:
@@ -706,13 +706,53 @@ Note how we are binding the state variable `new_post` to the `FormControl` and t
 
 Also see how we are saving the new post where Reactive Record's save returns a promise which means that the block after save is only evaluated when it returns yet React would have moved on to the rest of the code.
 
-Finally note that there is no code which checks to see if there are new posts yet when you run this, the list of posts remains magically up-to-date. Welcome to the wonder of Reactive Record and React.
+Finally note that there is no code which checks to see if there are new posts yet when you run this, the list of posts remains magically up-to-date.
 
-The CommentsList component if left for you to implement as an exercise.
+Welcome to the wonder of Reactive Record and React!
 
-================================
+## Synchromesh
+
+[We will be using the Synchromesh gem](https://github.com/reactrb/synchromesh)
+
+Reactive Record is the data lawyer between one client and its server and Synchromesh uses push notifications to push changed records to all connected Reactive Record clients.
+
+Synchromesh is incredibly simple to setup. Add this line to your Gemfile:
+
+```ruby
+gem 'synchromesh', git: "https://github.com/reactrb/synchromesh.git"
+```
+
+And then execute:
+
+``` text
+$ bundle install
+```
+
+Next add this line to your `components.rb`:
+
+```ruby
+require 'synchromesh'
+```
+
+Finally, you need to add an initialiser `config/initializers/synchromesh.rb`
+
+```ruby
+# config/initializers/synchromesh.rb
+Synchromesh.configuration do |config|
+  # this is the initialiser for polling, see the synchromesh
+  # documentation for using pusher.com
+  config.transport = :simple_poller
+  config.channel_prefix = "synchromesh"
+  config.opts = {
+    seconds_between_poll: 1.second,
+    seconds_polled_data_will_be_retained: 1.hour
+  }
+end
+```
+
+Restart your server, open two browser windows and be amazed to see any new posts added to one session magically appearing in the other!
+
 Todo:
-+ Reactrb Synchromesh
 + Reactrb Router
 
 ## Reactrb Hot-Loader and Opal IRB
