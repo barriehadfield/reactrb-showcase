@@ -625,16 +625,90 @@ To get started, lets create a new component which will display a list of Posts a
 div.container do
   ReactPlayer(url: 'https://www.youtube.com/embed/FzCsDVfPQqk', playing: true)
   br # line break
-  PostsAndComments()
+  PostsList()
 end
 ...
 ```
 
 Note that to place a Reactrb component you either need to include ( ) or { }, so `PostsAndComments()` or `PostsAndComments { }` would be valid but just `PostsAndComments` would not.
 
-Next lets create the `PostsAndComments` component:
+Next lets create the `PostsList` component:
 
+```ruby
+module Components
+  module Home
+    class PostsList < React::Component::Base
+      define_state :new_post, ""
 
+      before_mount do
+        # note that this will lazy load posts
+        # and only the fields that are needed will be requested
+        @posts = Post.all
+      end
+
+      def render
+        div do
+          new_post
+          ul.list_unstyled do
+            @posts.reverse.each do |post|
+              PostListItem(post: post)
+              CommentsList(comments: post.comments)
+            end
+          end
+        end
+      end
+
+      def new_post
+        ReactBootstrap::FormGroup() do
+          ReactBootstrap::FormControl(
+            value: state.new_post,
+            type: :text,
+          ).on(:change) { |e|
+            state.new_post! e.target.value
+          }
+        end
+        ReactBootstrap::Button(bsStyle: :primary) do
+          "Post"
+        end.on(:click) { save_new_post }
+      end
+
+      def save_new_post
+        post = Post.new(body: state.new_post)
+        post.save do |result|
+          # note that save is a promise so this code will only run after the save
+          # yet react will move onto the code after this (before the save happens)
+          alert "unable to save" unless result == true
+        end
+        state.new_post! ""
+      end
+    end
+
+    class PostListItem < React::Component::Base
+      param :post
+
+      def render
+        li do
+          # note how you access post.body just like with Active Record
+          h4 { params.post.body }
+        end
+      end
+
+    end
+  end
+end
+```
+
+Things to note in the code above:
+
+See how we get the Reactive Record Post collection in `before_mount`. Getting this collection here instead of in `after_mount` means that we do not need to worry about `@posts` being `nil` as the collection will always contain at least one entry with the actual records being lazy loaded when needed.
+
+Note how we are binding the state variable `new_post` to the `FormControl` and then setting its value based on the value being passed to the `.on(:change)` block. This is a standard React pattern.
+
+Also see how we are saving the new post where Reactive Record's save returns a promise which means that the block after save is only evaluated when it returns yet React would have moved on to the rest of the code.
+
+Finally note that there is no code which checks to see if there are new posts yet when you run this, the list of posts remains magically up-to-date. Welcome to the wonder of Reactive Record and React.
+
+The CommentsList component if left for you to implement as an exercise.
 
 ================================
 Todo:
