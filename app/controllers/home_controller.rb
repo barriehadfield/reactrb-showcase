@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def show
-    render_component
+    # uncomment to enfore pre-render
+    # render_component
   end
 end
