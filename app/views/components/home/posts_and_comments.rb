@@ -33,8 +33,9 @@ module Components
       def save_new_post
         post = Post.new(body: @new_post)
         post.save do |result|
-          # note that save is a promise
-          alert "unable to save" unless result[:success]
+          # note that save is a promise so this code will only run after the save
+          # yet react will move onto the code after this (before the save happens)
+          alert "unable to save" unless result
         end
       end
 
