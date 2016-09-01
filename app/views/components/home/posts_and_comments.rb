@@ -2,13 +2,6 @@ module Components
   module Home
     class PostsAndComments < React::Component::Base
 
-      # define_state :posts
-
-      # before_mount do
-      #   # this is needed as we are pre-rendering
-      #   # state.posts! []
-      # end
-
       before_mount do
         @posts = Post.all
       end
