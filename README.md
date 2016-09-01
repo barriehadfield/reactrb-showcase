@@ -17,7 +17,7 @@ The Showcase application will look like this:
 + [React Bootstrap](https://react-bootstrap.github.io/) to show how to use native React components in Reactrb
 + [Reactive Record](https://github.com/reactrb/reactive-record) to move data between Rails models and the front end
 + [Synchromesh](https://github.com/reactrb/synchromesh) to magically push changed data between all connected clients
-+ [Reactrb Hot-Loader and Opal IRB](#reactrb-hot-loader-and-opal-irb) for programmer joy and hot-loading with developing
++ [Reactrb Hot-Reloader and Opal IRB](https://github.com/fkchang/opal-hot-reloader) for programmer joy and hot-loading with developing
 
 
 ## Introduction
@@ -129,7 +129,7 @@ module Components
 end
 ```
 
-Have a look at this component as the generator creates a boiler plate component and instructions for using the most common Reactrb macros. Note that Reactrb components normally inherit from class `React::Component::Base` but you are free to `include React::Component` instead if you need your component to inherit from some other class.
+Have a look at this component as the generator creates a boilerplate component and instructions for using the most common Reactrb macros. Note that Reactrb components normally inherit from class `React::Component::Base` but you are free to `include React::Component` instead if you need your component to inherit from some other class.
 
 Also note how `params` are declared and how `before_mount` macros (and friends) macros are used. Finally note that every component must have one `render` method which must return just one DOM `element` which in this example case is a `div`.
 
@@ -348,7 +348,7 @@ compiles to (note the conversion from _ to -)
 
 	<span class='pull-right'></span>
 
-So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worrying about React Bootstrap? For one very simple reason: components like Navbar and Modal that requires `bootstrap.js` will not work with React so without the React Bootstrap project you would need to implement all that functionality yourself. The React Bootstrap project has re-implemented all this functionality as React components.
+So I hear you ask: why if I prefer the non-React Bootstrap syntax why am worrying about React Bootstrap? For one very simple reason: components like Navbar and Modal that requires `bootstrap.js` will not work with React on it's own so without the React Bootstrap project you would need to implement all that functionality yourself. The React Bootstrap project has re-implemented all this functionality as React components.
 
 Lets implement a Navbar in this project using React Bootstrap in Reactrb. First, we need to install Bootstrap and React Bootstrap:
 
@@ -501,7 +501,7 @@ So far we have a very basic application which is looking OK and showing a video.
 
 [We will be using the Reactive Record gem](https://github.com/reactrb/reactive-record)
 
-Reactive Record compiles your Active Record models so they are accessible to the front-end and implements an API based on your models and their associations. Lazy loading just the data that is needed to render a component, it is fully integrated with Reactrb and paired with Synchromesh to push database changes to all connected clients. ReactiveRecord and Synchromesh give you Relay + GraphQL like functionality with a fraction of the effort and complexity (the original idea for Reactive Record is credited to [Volt](https://github.com/voltrb/volt) and not Relay).
+Reactive Record compiles your Active Record models so they are accessible to the front-end and implements an API based on your models and their associations. Lazy loads just the data that is needed to render a component and is fully integrated with Reactrb and paired with Synchromesh to push database changes to all connected clients. ReactiveRecord and Synchromesh give you Relay + GraphQL like functionality with a fraction of the effort and complexity (the original idea for Reactive Record is credited to [Volt](https://github.com/voltrb/volt) and not Relay).
 
 ### Installing Reactive Record
 
@@ -601,7 +601,7 @@ require '_react_public_models'
 
 ### Model Associations
 
-Reactive Record is particular about both sides of an association being specified. If you forget to do this you will see warnings to this affect.
+Reactive Record is particular about both sides of an association being specified. If you forget to do this you will see warnings to this effect.
 
 ```ruby
 # models/public/post.rb
@@ -630,7 +630,7 @@ end
 ...
 ```
 
-Note that to place a Reactrb component you either need to include ( ) or { }, so `PostsAndComments()` or `PostsAndComments { }` would be valid but just `PostsAndComments` would not.
+Note that to place a Reactrb component you either need to include ( ) or { }, so `PostsList()` or `PostsList { }` would be valid but just `PostsList` would not.
 
 Next lets create the `PostsList` component:
 
@@ -700,7 +700,7 @@ end
 
 Things to note in the code above:
 
-See how we get the Reactive Record Post collection in `before_mount`. Getting this collection here instead of in `after_mount` means that we do not need to worry about `@posts` being `nil` as the collection will always contain at least one entry with the actual records being lazy loaded when needed.
+See how we fetch the Reactive Record Post collection in `before_mount`. Setting this here instead of in `after_mount` means that we do not need to worry about `@posts` being `nil` as the collection will always contain at least one entry with the actual records being lazy loaded when needed.
 
 Note how we are binding the state variable `new_post` to the `FormControl` and then setting its value based on the value being passed to the `.on(:change)` block. This is a standard React pattern.
 
@@ -708,13 +708,13 @@ Also see how we are saving the new post where Reactive Record's save returns a p
 
 Finally note that there is no code which checks to see if there are new posts yet when you run this, the list of posts remains magically up-to-date.
 
-Welcome to the wonder of Reactive Record and React!
+Welcome to the wonderful of Reactive Record and React!
 
 ## Synchromesh
 
 [We will be using the Synchromesh gem](https://github.com/reactrb/synchromesh)
 
-Reactive Record is the data lawyer between one client and its server and Synchromesh uses push notifications to push changed records to all connected Reactive Record clients.
+Reactive Record is the data layer between one client and its server and Synchromesh uses push notifications to push changed records to all connected Reactive Record clients.
 
 Synchromesh is incredibly simple to setup. Add this line to your Gemfile:
 
@@ -755,11 +755,11 @@ Restart your server, open two browser windows and be amazed to see any new posts
 Todo:
 + Reactrb Router
 
-## Reactrb Hot-Loader and Opal IRB
+## Reactrb Hot-reloader and Opal IRB
 
 Before we go any further, let's install too fantastic tools written by Forrest Chang:
 
-+ [Opal Hot Loader](https://github.com/fkchang/opal-hot-reloader)
++ [Opal Hot Reloader](https://github.com/fkchang/opal-hot-reloader)
 + [Opal Console](https://github.com/fkchang/opal-console)
 
 Opal Hot Loader is for pure programmer joy (not having to reload the page to compile your source) and the Opal console is incredibly useful to test how Ruby code compiles to JavaScript.
@@ -810,7 +810,7 @@ Refresh your browser for the last time and try modifying your `show.rb` componen
 
 ### Reactrb is powered by React
 
-Reactrb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to compliment your understanding of Reactrb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to Reactrb equivalents. To make headway with Reactrb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start. (Make sure you see the Flux pattern in Reactrb above for an example of how to communicate between grandparent and child components).   
+Reactrb and friends are in most cases simple DSL Ruby wrappers to the underlying native JavaScript libraries and React Components. It is really important to have a solid grip on how these technologies work to complement your understanding of Reactrb. Most searches for help on Google will take you to examples written in JSX or ES6 JavaScript but you will learn over time to transalte this to Reactrb equivalents. To make headway with Reactrb you do need a solid understanding of the underlying philosophy of React and its component based architecture. The 'Thinking in React' tutorial below is an excellent place to start. (Make sure you see the Flux pattern in Reactrb above for an example of how to communicate between grandparent and child components).   
 
 + [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 + [React](https://facebook.github.io/react/docs/getting-started.html)
