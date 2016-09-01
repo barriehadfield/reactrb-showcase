@@ -10,8 +10,10 @@ module Components
         div do
           new_post
           ul do
-            @posts.each do |post|
+            @posts.reverse.each do |post|
               PostListItem(post: post)
+              # note how you access associated models
+              CommentsList(comments: post.comments)
             end
           end
         end
@@ -35,7 +37,7 @@ module Components
         post.save do |result|
           # note that save is a promise so this code will only run after the save
           # yet react will move onto the code after this (before the save happens)
-          alert "unable to save" unless result
+          alert "unable to save" unless result == true
         end
       end
 
@@ -46,6 +48,7 @@ module Components
 
       def render
         li do
+          # note how you access post.body just like with Active Record
           h4 { params.post.body }
         end
       end
