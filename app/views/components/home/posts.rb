@@ -1,6 +1,6 @@
 module Components
   module Home
-    class PostsAndComments < React::Component::Base
+    class PostsList < React::Component::Base
 
       before_mount do
         @posts = Post.all
@@ -11,7 +11,7 @@ module Components
           new_post
           ul do
             @posts.each do |post|
-              li { post.body }
+              PostListItem(post: post)
             end
           end
         end
@@ -36,6 +36,17 @@ module Components
           # note that save is a promise so this code will only run after the save
           # yet react will move onto the code after this (before the save happens)
           alert "unable to save" unless result
+        end
+      end
+
+    end
+
+    class PostListItem < React::Component::Base
+      param :post
+
+      def render
+        li do
+          h4 { params.post.body }
         end
       end
 
