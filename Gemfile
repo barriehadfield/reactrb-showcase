@@ -24,26 +24,37 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # react-rb gems
-gem 'reactrb', '0.8.8' 
-# gem 'react-rails', '~> 1.7.1'
-gem 'opal-rails', '0.8.1'
-gem 'therubyracer', platforms: :ruby
-gem 'reactive-record'
-gem 'synchromesh', git: "https://github.com/reactrb/synchromesh.git"
+# gem 'reactrb', '0.8.8'
+# gem 'opal', "~> 0.10.0"
+# gem 'opal-rails', '0.9.0' # (gives scope error)
+# gem 'opal-rails', '0.8.1'
+# gem 'therubyracer', platforms: :ruby
+# gem 'reactive-record'
+# gem 'synchromesh', git: "https://github.com/reactrb/synchromesh.git", branch: "authorization-policies"
 gem 'opal_hot_reloader', git: 'https://github.com/fkchang/opal-hot-reloader.git'
 # foreman to start rails and hot-loader rocesses
+
 gem 'foreman'
 
+
+
+gem 'reactrb'
+gem 'react-rails', '>= 1.3.0'
+gem 'opal-rails', '0.8.1' # RR works but we need > 0.8.1 for opal-rspec-rails
+# gem 'opal-rails', '0.9.0' # now we have the bug Uncaught undefined method `scope' for class (in monkey patched module ActiveRecord)
+gem 'therubyracer', platforms: :ruby
+gem 'reactive-record', '>= 0.8.0'
+gem 'synchromesh', git: "https://github.com/reactrb/synchromesh.git", branch: 'authorization-policies'
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem "reactrb-rails-generator"
+  # gem 'opal-rspec-rails', github: 'opal/opal-rspec-rails'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'byebug'
+  # gem 'opal-rspec-rails', git: "https://github.com/opal/opal-rspec-rails.git"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
