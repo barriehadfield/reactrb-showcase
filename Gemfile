@@ -40,14 +40,14 @@ gem 'foreman'
 
 gem 'reactrb'
 gem 'react-rails', '>= 1.3.0'
-gem 'opal-rails', '0.8.1' # RR works but we need > 0.8.1 for opal-rspec-rails
-# gem 'opal-rails', '0.9.0' # now we have the bug Uncaught undefined method `scope' for class (in monkey patched module ActiveRecord)
+# gem 'opal-rails', '0.8.1' # RR works but we need > 0.8.1 for opal-rspec-rails
+gem 'opal-rails', '0.9.0' # now we have the bug Uncaught undefined method `scope' for class (in monkey patched module ActiveRecord)
 gem 'therubyracer', platforms: :ruby
 gem 'reactive-record', '>= 0.8.0'
 gem 'synchromesh', git: "https://github.com/reactrb/synchromesh.git", branch: 'authorization-policies'
 
 group :development, :test do
-  # gem 'opal-rspec-rails', github: 'opal/opal-rspec-rails'
+  gem 'opal-rspec-rails', github: 'opal/opal-rspec-rails'
 end
 
 group :development do
